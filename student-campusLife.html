@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Campus Life Center</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+        <link rel="stylesheet" href="stylesElain.css">
+
+        <style>
+            #map { height: 400px; }
+        </style>
+    </head>
+
+    <body>
+        <!--cover page of campus life center-->
+        <section>
+            <div class="py-3 ">
+                <div class="row">
+                    <div class="col-md-6 px-md-5">
+                        <h1 class="display-3 mb-5 "><br><br>Campus Life Center</h1>
+                            <p class="lead mb-4">Welcome to the Campus Life Centre. Here, we offer everything at our fingertips to ensure that students have help and support throughout their studies. Whether it's about finding delicious food nearby, convenient accommodation options, or reliable transportation services, we've got you covered.</p>  
+                    </div>
+                    <!--picture-->
+                    <div class="col-md-6 px-md-5">
+                        <img class="img-fluid d-block ms-5" src="~campus2.png" >
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--important of campus life center-->
+        <section>
+            <div class="py-5" style="background-image: url('~background1.png');background-size:cover;">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-6 col-10 bg-white p-5 ms-auto text-right">
+                      <h3 class="display-3">Essential Support</h3><br>
+                      <p class="mb-4">The Campus Life Centre is crucial for students as it provides easy access to vital resources such as food, accommodation, and transportation. This support enables students to concentrate on their studies and enjoy a cohesive campus life experience.</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </section>
+        <!--navigation(food, accommodation, transport)-->
+        <section>
+            <div class="container">
+                <div>
+                    <div class="col-md-12 text-center py-5">
+                    <h1>Student Living</h1>
+                    </div>
+                </div>
+                <div class="row justify-content-center py-5">
+                    <div class="col-md-4">
+                        <h4 class="text-center"><b>Dining & Food</b></h4><br>
+                        <div class="card text-center">
+                            <img class="card-img-top img-fluid" src="~food.jpeg" alt="Card image cap" style="height: 330px; object-fit: cover;">
+                            <div class="card-body">
+                                <p class="card-text">Explore a variety of dining options nearby. From quick bites to sit-down meals, there's something for every taste and budget. Grab a meal between classes or hang out with friends at local eateries.</p>
+                            </div>
+                            <a class="btn btn-outline-dark" href="#food">Nearby Food</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h4 class="text-center"><b>Housing Info</b></h4><br>
+                        <div class="card text-center">
+                            <img class="card-img-top img-fluid" src="~housing.jpeg" alt="Card image cap" style="height: 330px; object-fit: cover;">
+                            <div class="card-body">
+                                <p class="card-text">Find your perfect place to live near campus. Choose from modern apartments to cozy homes, all within walking distance. Enjoy living in a student-friendly neighborhood now!</p>
+                            </div>
+                            <a class="btn btn-outline-dark" href="#accommodation">Nearby Accommodation</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h4 class="text-center"><b>Transport Guide</b></h4><br>
+                        <div class="card text-center">
+                            <img class="card-img-top img-fluid" src="~transport.jpeg" alt="Card image cap" style="height: 330px; object-fit: cover;">
+                            <div class="card-body">
+                                <p class="card-text">Get around effortlessly with our transport services. Whether you're heading to class, exploring the city, or traveling home, our shuttles and routes are here to make your journey convenient and stress-free.</p>
+                            </div>
+                            <a class="btn btn-outline-dark" href="#transport">Shuttle Bus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <br><br><br><br><br>
+        
+        <!--food-->
+        <section id="food">
+            <div class="py-5 text-center text-white d-flex align-items-center" style="background-image: url(~background2.png); background-position: center; background-size: 100% 100%;; background-repeat:no-repeat; height: 30vh;">
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="mx-auto p-4 col-md-5 text-center"> <i class="d-block fa fa-stop-circle fa-4x mb-3"></i>
+                            <h1 style="font-size: 4em;">Food</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--carousel section-->
+            <div>
+                <div class="container mt-3">
+                    <div class="row">
+                        <div class="col-lg-8 p-md-5 p-3 d-flex flex-column justify-content-center">
+                            <h1>What delicious food is there near our school?</h1><br>
+                            <p class="mb-0">
+                                Near our school, a diverse range of dining options awaits, featuring Chinese, Western, and international cuisines. From street-side stalls to cozy cafes and bustling restaurants, whether you need a quick lunch or a satisfying dinner, you'll find something to suit every taste. These eateries offer friendly service and quality ingredients, enriching your campus experience with delicious dining choices.
+                            </p>
+                        </div>
+                        <div class="col-lg-4 p-3">
+                            <div id="carousel2" class="carousel slide" data-ride="carousel" data-interval="3000">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active"> <img class="d-block w-100" src="~food1.jpeg" style="height: 400px; object-fit: cover;"> </div>
+                                    <div class="carousel-item"> <img class="d-block w-100" src="~food2.jpeg" style="height: 400px; object-fit: cover;"> </div>
+                                    <div class="carousel-item"> <img class="d-block w-100" src="~food3.jpeg" style="height: 400px; object-fit: cover;"> </div>
+                                    <div class="carousel-item"> <img class="d-block w-100" src="~food.jpeg" style="height: 400px; object-fit: cover;"> </div>
+                                </div> 
+                                <a class="carousel-control-prev" href="#carousel2" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span></a>
+                                <a class="carousel-control-next" href="#carousel2" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--icon and food resources-->
+            <div class="py-5" >
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-4 col-md-6 p-4">
+                        <div class="row">
+                            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://img.icons8.com/?size=100&id=110384&format=png&color=000000"> </div>
+                            <div class="col-9">
+                            <p class="lead mb-1"> <b>#1 Food Trucks</b> </p>
+                            <p class="mb-0">Quick, delicious and reasonable prices.</p>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 p-4">
+                        <div class="row">
+                            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://img.icons8.com/?size=100&id=NeJEpCxGDfNY&format=png&color=000000"> </div>
+                            <div class="col-9">
+                            <p class="lead mb-1"> <b>#2 HELP Cafe</b> </p>
+                            <p class="mb-0">Delightful menu and cozy environment.</p>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 p-4">
+                        <div class="row">
+                            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://img.icons8.com/?size=100&id=ptjOFzptUkux&format=png&color=000000"> </div>
+                            <div class="col-9">
+                            <p class="lead mb-1"> <b>#3 Nearby Restaurants</b> </p>
+                            <p class="mb-0">Vibrant array of restaurants and friendly service.</p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--API : OpenStreetMap-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2 class="mb-4">Check our nearby restaurants now!</h2>
+                        <p>A short walk from our school, a vibrant array of restaurants awaits. From cozy family-run eateries serving homestyle favorites to trendy spots offering contemporary cuisine, there's something to suit every occasion and palate. Whether you're planning a casual dinner with friends or a special celebration, nearby restaurants offer quality dining experiences with friendly service and inviting atmospheres.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="map"></div>
+                    </div>
+                </div>
+            </div>            
+        </section>
+        <br><br><br><br><br>
+
+        <!--accommodation-->
+        <section id="accommodation">
+            <div class="py-5 text-center text-white d-flex align-items-center" style="background-image: url(~background2.png); background-position: center; background-size: 100% 100%;; background-repeat:no-repeat; height: 30vh;">
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="mx-auto p-4 col-md-5 text-center"> <i class="d-block fa fa-stop-circle fa-4x mb-3"></i>
+                            <h1 style="font-size: 4em;">Accommodation</h1>
+                        </div>
+                    </div>
+                </div>
+            </div><br><br>
+
+            <div class="py-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class=" mb-4">Popular Student Accommodation</h1>
+                            <!--Accommodation1-->
+                            <div class="row mt-5">
+                                <div class="col-lg-5 col-md-6 p-md-4 col-3">
+                                    <img class="img-fluid d-block" src="~accommodation1.jpeg" width="1500">
+                                </div>
+                                <div class="col-md-6 offset-lg-1 d-flex flex-column justify-content-center py-4">
+                                    <h2 class="my-3"><b>Damai Apartment</b></h2>
+                                    <p class="lead">Damai Apartment is conveniently located nearest to the University campus, allowing students the ease and convenience of walking home effortlessly. Its close proximity ensures unparalleled convenience for residents.</p>
+                                    <!-- Button to toggle hidden section for the second accommodation -->
+                                    <button class="btn btn-outline-dark mt-3" type="button" data-toggle="collapse" data-target="#accommodation1Details" aria-expanded="false" aria-controls="accommodation1Details">
+                                        More Details
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Hidden section for the Accommodation1 -->
+                            <div class="collapse mt-3" id="accommodation1Details">
+                                <div class="container mt-4">
+                                    <div>
+                                        <ul class="nav nav-tabs">
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link active" data-toggle="tab" data-target="#taboneA1">Floorplan</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link" data-toggle="tab" data-target="#tabtwoA1">Room Type</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link" data-toggle="tab" data-target="#tabthreeA1">Facility</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content mt-2">
+                                            <div class="tab-pane fade show active" id="taboneA1" role="tabpanel">
+                                                <div class="col-md-10 text-center mx-auto">
+                                                    <img class="img-fluid d-block" src="~damai.jpeg" style="max-width: 100%; height: auto;">
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="tabtwoA1" role="tabpanel">
+                                                <div class="col-md-10 text-center mx-auto">
+                                                    <img class="img-fluid d-block" src="~damaiRoom.png" style="max-width: 100%; height: auto;">
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="tabthreeA1" role="tabpanel">
+                                                <div class="col-md-10 text-center mx-auto">
+                                                    <img class="img-fluid d-block" src="~damaiFacility.png" style="max-width: 100%; height: auto;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end of hidden section for the Accommodation1 -->
+
+                            <!-- Accommodation2 -->
+                            <div class="row">
+                                <div class="col-md-6 d-flex flex-column justify-content-center order-2 order-md-1 py-4">
+                                    <h2 class="my-3"><b>Atria Residence</b></h2>
+                                    <p class="lead">Atria Residence offers a superb living environment with enhanced security measures due to its low population density, ensuring residents' safety. This popular apartment accommodates hundreds of students and benefits from a convenient circular shuttle service provided by the University, located just 1km away.</p>
+                                    <!-- Button to toggle hidden section -->
+                                    <button class="btn btn-outline-dark mt-3" type="button" data-toggle="collapse" data-target="#accommodation2Details" aria-expanded="true" aria-controls="accommodation2Details">
+                                        More Details
+                                    </button>
+                                </div>
+                                <div class="col-lg-5 col-md-6 p-md-4 col-3 offset-lg-1 order-1 order-md-2">
+                                    <img class="img-fluid d-block" src="~accommodation2.jpeg" width="1500">
+                                </div>
+                            </div>
+                            <!-- Hidden section for Accommodation2 -->
+                            <div class="collapse mt-3" id="accommodation2Details">
+                                <div class="container mt-4">
+                                    <div>
+                                        <ul class="nav nav-tabs">
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link active" data-toggle="tab" data-target="#taboneA2">Floorplan</a> 
+                                            </li>
+                                            <li class="nav-item"> 
+                                                <a href="#" class="nav-link" data-toggle="tab" data-target="#tabtwoA2">Room Type</a> 
+                                            </li>
+                                            <li class="nav-item"> 
+                                                <a href="#" class="nav-link" data-toggle="tab" data-target="#tabthreeA2">Facility</a> 
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content mt-2">
+                                            <div class="tab-pane fade show active" id="taboneA2" role="tabpanel">
+                                                <div class="col-md-10 text-center mx-auto">
+                                                    <img class="img-fluid d-block" src="~atria.jpeg" style="max-width: 100%; height: auto;">
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="tabtwoA2" role="tabpanel">
+                                                <div class="col-md-10 text-center mx-auto">
+                                                    <img class="img-fluid d-block" src="~atriaRoom.png" style="max-width: 100%; height: auto;">
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="tabthreeA2" role="tabpanel">
+                                                <div class="col-md-10 text-center mx-auto">
+                                                    <img class="img-fluid d-block" src="~atriaFacility.png" style="max-width: 100%; height: auto;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end of hidden section for the Accommodation2 -->
+ 
+                            <!-- Accommodation3 -->
+                            <div class="row">
+                                <div class="col-lg-5 col-md-6 p-md-4 col-3">
+                                    <img class="img-fluid d-block" src="~accommodation3.jpeg" width="1500">
+                                </div>
+                                <div class="col-md-6 offset-lg-1 d-flex flex-column justify-content-center py-4">
+                                    <h2 class="my-3"><b>Shop Hostel</b></h2>
+                                    <p class="lead">Shop Hostel, opposite the University campus, offers convenient access to eateries and shops within walking distance. It features CCTV and access card security systems, ideal for students seeking convenience and safety.</p>
+                                    <!-- Button to toggle hidden section -->
+                                    <button class="btn btn-outline-dark mt-3" type="button" data-toggle="collapse" data-target="#accommodation3Details" aria-expanded="true" aria-controls="accommodation3Details">
+                                        More Details
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Hidden section for Accommodation3 -->
+                            <div class="collapse mt-3" id="accommodation3Details">
+                                <div class="container mt-4">
+                                    <div>
+                                        <ul class="nav nav-tabs">
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link active" data-toggle="tab" data-target="#taboneA3">Floorplan</a> 
+                                            </li>
+                                            <li class="nav-item"> 
+                                                <a href="#" class="nav-link" data-toggle="tab" data-target="#tabtwoA3">Room Type</a> 
+                                            </li>
+                                            <li class="nav-item"> 
+                                                <a href="#" class="nav-link" data-toggle="tab" data-target="#tabthreeA3">Facility</a> 
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content mt-2">
+                                            <div class="tab-pane fade show active" id="taboneA3" role="tabpanel">
+                                                <div class="col-md-10 text-center mx-auto">
+                                                    <img class="img-fluid d-block" src="~shop.png" style="max-width: 100%; height: auto;">
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="tabtwoA3" role="tabpanel">
+                                                <div class="col-md-10 text-center mx-auto">
+                                                    <img class="img-fluid d-block" src="~shopRoom.png" style="max-width: 100%; height: auto;">
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="tabthreeA3" role="tabpanel">
+                                                <div class="col-md-10 text-center mx-auto">
+                                                    <img class="img-fluid d-block" src="~shopFacility.png" style="max-width: 100%; height: auto;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </section>
+        <br><br><br><br><br>
+
+        <!--transport-->
+        <section id="transport">
+            <div class="py-5 text-center text-white d-flex align-items-center" style="background-image: url(~background2.png); background-position: center; background-size: 100% 100%;; background-repeat:no-repeat; height: 30vh;">
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="mx-auto p-4 col-md-5 text-center"> <i class="d-block fa fa-stop-circle fa-4x mb-3"></i>
+                            <h1 style="font-size: 4em;">Transport</h1>
+                        </div>
+                    </div>
+                </div>
+            </div><br><br>
+            <!--shuttle bus schedule-->
+            <div class="py-3 text-center">
+                <div class="row">
+                    <div class="col-md-10 text-center mx-auto">
+                        <img class="img-fluid d-block" src="~shuttle_bus.jpg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!--bootstrap navbar-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- Bootstrap JavaScript -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+        
+        <!--OpenStreetMap-->
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var map = L.map('map').setView([3.1770, 101.5497], 16); // Centered on South Gate, zoom level 16
+
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
+
+                // Query for restaurants using Overpass API
+                var query = `[out:json];
+                    node["amenity"="restaurant"](around:1000,3.1770,101.5497);
+                    out;`;
+
+                fetch('https://overpass-api.de/api/interpreter?data=' + encodeURIComponent(query))
+                    .then(response => response.json())
+                    .then(data => {
+                        data.elements.forEach(function(element) {
+                            var marker = L.marker([element.lat, element.lon]).addTo(map);
+                            marker.bindPopup(element.tags.name || "Restaurant");
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error fetching data:', error);
+                    });
+            });
+        </script>
+    </body>
+</html>

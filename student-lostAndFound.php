@@ -28,7 +28,7 @@
 </head>
 <body>
     <!--User Homepage - textbox in full screen picture-->
-    <div class="py-5" style="background-image: url('campus5.png'); height: 100vh; background-size: cover;">
+    <div class="py-5" style="background-image: url('~campus5.png'); height: 100vh; background-size: cover;">
         <div class="container">
             <div class="row">
                 <div class="bg-white p-5 mx-auto col-md-8 col-10">
@@ -98,7 +98,7 @@
                     <div class="col-lg-6">
                         <!--Take Care of Your Belongings-->
                         <div class="bg-image position-relative">
-                            <img src="overlay1.png" class="w-100 mb-2 mb-md-4 shadow-1-strong rounded" />
+                            <img src="~overlay1.png" class="w-100 mb-2 mb-md-4 shadow-1-strong rounded" />
                             <div class="mask text-light d-flex justify-content-center align-items-center">
                                 <div>
                                     <h4>Take Care of Your Belongings</h4>
@@ -108,7 +108,7 @@
                         </div>
                         <!--Report found item-->
                         <div class="bg-image position-relative mt-4 mt-md-0">
-                            <img src="overlay2.jpg" class="w-100 shadow-1-strong rounded" />
+                            <img src="~overlay2.jpg" class="w-100 shadow-1-strong rounded" />
                             <div class="mask text-light d-flex justify-content-center align-items-center">
                                 <div>
                                     <h4>Report found item</h4>
@@ -120,7 +120,7 @@
                     <!--Look for lost item-->
                     <div class="col-lg-6">
                         <div class="bg-image position-relative">
-                            <img src="overlay3.tiff" class="w-100 shadow-1-strong rounded" />
+                            <img src="~overlay3.tiff" class="w-100 shadow-1-strong rounded" />
                             <div class="mask text-light d-flex justify-content-center align-items-center">
                                 <div>
                                     <h4>Look for lost item</h4>

@@ -1,0 +1,195 @@
+.suggestionBoxStart {
+    height: auto;
+  min-height: 93dvh;
+  /* display: none; */
+  }
+  
+  .suggestionBoxStartText{
+  margin-left: 0;
+  margin-bottom: 0;
+    font-size: 8dvw;
+    line-height: 12dvw;
+  text-transform: none;
+  /* display: block; */
+  }
+  
+  .contact-section1 {
+  height: auto;
+  min-height: 93dvh;
+  /* display: none; */
+  }
+  
+  .contact-header {
+  text-transform: none;
+  margin-bottom: 5dvh;
+  font-size: 7dvw;
+  line-height: 9dvw;
+  }
+  
+  .contact-form {
+  background-color: rgba(0, 0, 0, 0);
+  border: 0 #000;
+  flex: none;
+  align-self: stretch;
+  font-family: Dilemma, sans-serif;
+  font-size: 45px;
+  font-weight: 200;
+  line-height: 55px;
+  margin-left: 5%;
+  }
+  
+  .contact-form-comma{
+    background-color: rgba(0, 0, 0, 0);
+    border: 0 #000;
+    flex: none;
+    align-self: stretch;
+    font-family: Dilemma, sans-serif;
+    font-size: 45px;
+    font-weight: 200;
+    line-height: 55px;
+  }
+  
+  .contact-form.name-field, .contact-form.email-field {
+  border-radius: 0;
+  height: 50px;
+  font-size: 40px;
+  margin-left: 0;
+  text-align: center;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  flex: 0 auto;
+  align-self: center;
+  }
+  
+  .contact-form.email-field {
+    width: 80%;
+  }
+  
+  .contact-form.message-field {
+  text-align: left;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  flex: 0 auto;
+  align-self: center;
+  height: 200px;
+  margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 40px;
+  line-height: 50px;
+  width: 90%;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  /*css for student-feedbackMainPage-voting section*/
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: "Raleway", sans-serif;
+    background: #ffffff;
+  }
+  .poll {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 400px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 5px rgba(35, 30, 128, 0.05);
+  }
+  .poll .question {
+    padding: 20px;
+    color: #111;
+    font-size: 18px;
+    border-bottom: 1px solid #eee;
+  }
+  .poll .answers {
+    padding: 20px 20px 10px;
+  }
+  .poll .answers .answer {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    padding: 0px 10px;
+    line-height: 40px;
+    color: #111;
+    margin-bottom: 10px;
+    border: 1px solid #d4d4d4;
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .poll .answers .answer.selected {
+    border: 2px solid #8f9fe8;
+  }
+  .poll .answers .answer span.percentage-value {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    width: 40px;
+    transform: translateY(-50%);
+    color: #111;
+    font-size: 15px;
+  }
+  .poll .answers .answer span.percentage-bar {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 0%;
+    height: 100%;
+    background: #ccd8f1;
+    z-index: -1;
+    transition: width 300ms ease-in-out;
+  }
+  
+  
+  
+  
+  
+  
+  /*css for student-lostAndFound section*/
+  .bg-image {
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+  }
+  .bg-image:hover .mask {
+    opacity: 1;
+  }
+  .mask h4 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  .mask p {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }

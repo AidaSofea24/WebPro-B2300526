@@ -37,11 +37,11 @@ if (isset($_POST["send"])) {
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'bernyleo.janthonius@gmail.com';
-        $mail->Password = 'ssxp jjaj sbrt rxwb';
+        $mail->Username = 'helpuniversitystudentcenter@gmail.com';
+        $mail->Password = 'qdcy typj qcbl kzgq';
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;
-        $mail->setFrom('bernyleo.janthonius@gmail.com');
+        $mail->setFrom('helpuniversitystudentcenter@gmail.com');
         $mail->addAddress($email);
         $mail->isHTML(true);
         $mail->Subject = 'Password Reset';

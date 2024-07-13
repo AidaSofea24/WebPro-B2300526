@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="section_top">
+        <div class="container glass">
+            
+            <div class="img"></div>
+            <div class="login-section">
+                <div class="logo">
+                    <img src="logo.png" alt="Logo">
+                </div>
+                <h2>Welcome to HELP Student Service Center</h2>
+                <h4>Please login</h4>
+                <form id="loginForm" action="authentication.php" onsubmit="return validation()" method="POST">
+                    <div class="input-group">
+                        <input type="text" id="userID" name="userID" placeholder="Enter User ID" maxlength="8" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="password" name="password" placeholder="Enter Password" required>
+                    </div>
+                    <button type="submit">Login</button>
+                    <!-- Forget Password link -->
+                    <div class="forgot-password">
+                        <a href="Forget Password/forget_password.php">Forget Password?</a>
+                    </div>
+                </form>
+            </div>  
+        </div>
+    </div>
+    <script>
+        document.getElementById('userID').addEventListener('input', function (e) {
+            if (this.value.length > 8) {
+                this.value = this.value.slice(0, 8);
+            }
+            this.value = this.value.toUpperCase();
+        });
+    </script>
+    <script src="scripts.js"></script>
+</body>
+</html>

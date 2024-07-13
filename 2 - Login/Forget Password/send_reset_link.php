@@ -31,7 +31,7 @@ if (isset($_POST["send"])) {
         $row = mysqli_fetch_assoc($result);
         $id = $row['id']; // Assuming you have an ID column
 
-        $resetLink = "http://localhost/2%20-%20Login/Forget%20Password/update_password.php?email=$email";
+        $resetLink = "http://localhost/bit-102/2%20-%20Login/Forget%20Password/update_password.php?email=$email";
 
         $mail = new PHPMailer(true);
         $mail->isSMTP();
@@ -51,7 +51,7 @@ if (isset($_POST["send"])) {
 
         echo "<script>
         alert('Reset link sent successfully to $email');
-        document.location.href = '../index.html';
+        document.location.href = '../Forget Password/index.html';
         </script>";
     } else {
         echo "<script>

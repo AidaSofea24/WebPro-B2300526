@@ -31,7 +31,7 @@ if($count == 1 && password_verify($password, $row['password'])){
     if($row['role'] == 'admin') {
         echo "<script>
         alert('Login successful. Admin side');
-        window.location.href = 'index.html';
+        window.location.href = '../1 - Admin side/index.php';
         </script>";
     } else {
         echo "<script>

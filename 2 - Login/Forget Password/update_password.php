@@ -51,7 +51,7 @@
             if ($stmt->execute()) {
                 echo "<script>
                 alert('Password updated successfully');
-                window.location.href = 'index.html';
+                window.location.href = '../index.html';
                 </script>";
                 exit;
             } else {
@@ -66,11 +66,11 @@
     $conn->close();
     ?>
     <form method="post" action="update_password.php?email=<?php echo htmlspecialchars($email); ?>" class="mt-4">
-        <div class="form-group">
+        <div class="form-group mb-3">
             <label for="password">New Password:</label>
             <input type="password" id="password" name="password" class="form-control" required>
         </div>
-        <div class="form-group">
+        <div class="form-group mb-4">
             <label for="confirm_password">Confirm New Password:</label>
             <input type="password" id="confirm_password" name="confirm_password" class="form-control" required>
         </div>

@@ -50,8 +50,8 @@ if (isset($_POST["send"])) {
         $mail->send();
 
         echo "<script>
-        alert('Reset link sent successfully to $email');
-        document.location.href = '../Forget Password/index.html';
+        alert('Reset link sent successfully to $email, please check your email');
+        document.location.href = '../index.html';
         </script>";
     } else {
         echo "<script>

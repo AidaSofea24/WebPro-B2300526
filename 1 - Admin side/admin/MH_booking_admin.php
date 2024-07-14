@@ -67,21 +67,7 @@
             </div>
             <div class="view-bookings-container" id="view-bookings">
                 <h2>View All Bookings</h2>
-                <table id="bookings-table">
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Time</th>
-                            <th>Duration</th>
-                            <th>Therapist Gender</th>
-                            <th>Room</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Booking rows will be populated dynamically by JavaScript -->
-                    </tbody>
-                </table>
+                <?php include 'view_bookings.php'; ?>
             </div>
             <div class="view-surveys-container" id="view-surveys">
                 <h2>View Survey Responses</h2>
@@ -91,6 +77,7 @@
     </section>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@5.9.0/main.global.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@5.9.0/main.global.min.js"></script>
     <script src="Mhadmin.js"></script>
 </body>
 </html>

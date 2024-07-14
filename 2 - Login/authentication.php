@@ -37,9 +37,9 @@ if($count == 1 && password_verify($password, $row['password'])){
         </script>";
     } else {
         echo "<script>
-        alert('Login successful. User side');
-        window.location.href = 'index.html';
+        window.location.href = 'http://localhost/bit-102/student-dashboard.html';
         </script>";
+        //alert('Login successful. User side');
     }
     exit();
 } else {

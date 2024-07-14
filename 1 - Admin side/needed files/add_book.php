@@ -9,35 +9,34 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
-    die(json_encode(['success' => false, 'error' => 'Connection failed: ' . $conn->connect_error]));
+    die("Connection failed: " . $conn->connect_error);
 }
 
-// Retrieve form data
-$title = $_POST['title'];
-$genre = $_POST['genre'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $title = $_POST["title"];
+    $genre = $_POST["genre"];
+    $image = $_FILES["image"]["name"];
+    $target_dir = "uploads/";
+    $target_file = $target_dir . basename($image);
 
-// Check if file is uploaded and no error occurred
-if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-    // Get temporary file name
-    $imageTmpName = $_FILES['image']['tmp_name'];
-    // Read image data into a variable
-    $imageData = file_get_contents($imageTmpName);
-    
-    // Prepare and bind
-    $stmt = $conn->prepare("INSERT INTO books (title, genre, image) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $title, $genre, $imageData);
-    
-    if ($stmt->execute()) {
-        echo json_encode(['success' => true, 'message' => 'New book added successfully']);
-    } else {
-        echo json_encode(['success' => false, 'error' => 'Error: ' . $stmt->error]);
+    // Check if uploads directory exists, if not create it
+    if (!is_dir($target_dir)) {
+        mkdir($target_dir, 0777, true);
     }
-    
-    $stmt->close();
-} else {
-    echo json_encode(['success' => false, 'error' => 'File upload error.']);
+
+    // Upload image
+    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+        $sql = "INSERT INTO books (title, genre, image) VALUES ('$title', '$genre', '$image')";
+
+        if ($conn->query($sql) === TRUE) {
+            echo "New book added successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+    }
 }
 
-// Close database connection
 $conn->close();
 ?>

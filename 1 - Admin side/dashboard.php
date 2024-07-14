@@ -53,7 +53,7 @@ include('includes/navbar.php');
                                     <div class="card-body text-center">
                                         <h5 class="card-title">HELP e-Library Management</h5>
                                         <p class="card-text">Manage the e-books inside the library</p>
-                                        <a href="poll_admin.php" class="btn btn-primary">Go to e-Library</a>
+                                        <a href="needed files/admin_lib.php" class="btn btn-primary">Go to e-Library</a>
                                     </div>
                                 </div>
                             </div>

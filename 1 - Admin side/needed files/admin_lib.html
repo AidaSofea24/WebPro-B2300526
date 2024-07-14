@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library System - Admin</title>
+    <title>Admin Panel - Library System</title>
     <link rel="stylesheet" href="Lib_admin.css">
 </head>
 <body>
@@ -28,13 +28,13 @@
             </div>
             <div class="book-form-container" id="add-book">
                 <h2>Add a New Book</h2>
-                <form action="add_book.php" method="post" enctype="multipart/form-data" class="book-form">
+                <form id="addBookForm" enctype="multipart/form-data">
                     <label for="title">Book Title:</label>
                     <input type="text" id="title" name="title" required>
                     <label for="genre">Genre:</label>
                     <input type="text" id="genre" name="genre" required>
                     <label for="image">Image:</label>
-                    <input type="file" id="image" name="image" required>
+                    <input type="file" id="image" name="image" accept="image/*" required>
                     <button type="submit">Add Book</button>
                 </form>
             </div>
@@ -45,5 +45,35 @@
         </main>
     </section>
     <script src="admin_lib.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const addBookForm = document.getElementById('addBookForm');
+
+            addBookForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const formData = new FormData(addBookForm);
+
+                fetch('add_book.php', {
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Book added successfully!');
+                        fetchBooks(); // Function to reload books after adding
+                        addBookForm.reset(); // Reset the form after successful submission
+                    } else {
+                        alert('Error adding book: ' + data.error);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error adding book:', error);
+                    alert('Failed to add book. Please try again later.');
+                });
+            });
+        });
+    </script>
 </body>
 </html>

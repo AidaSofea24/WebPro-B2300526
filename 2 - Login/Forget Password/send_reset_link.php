@@ -6,10 +6,10 @@ require 'phpmailer/src/Exception.php';
 require 'phpmailer/src/PHPMailer.php';
 require 'phpmailer/src/SMTP.php';
 
-$servername = "localhost"; // replace with your database host
-$username = "root"; // replace with your database username
-$password = ""; // replace with your database password
-$dbname = "bit102db"; // replace with your database name
+$servername = "localhost"; 
+$username = "root"; 
+$password = ""; 
+$dbname = "bit102db"; 
 
 // Create a connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -32,7 +32,7 @@ if (isset($_POST["send"])) {
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $id = $row['id']; // Assuming you have an ID column
+        $id = $row['id']; 
 
         $resetLink = "http://localhost/bit-102/2%20-%20Login/Forget%20Password/update_password.php?email=" . urlencode($email);
 

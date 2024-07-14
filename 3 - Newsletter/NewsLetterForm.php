@@ -62,7 +62,7 @@
     <div class="form-container">
         <img src="logo.png" alt="Logo" class="logo">
         <h2>Subscribe to our Newsletter</h2>
-        <form id="subscription-form" action="emailSubSend.php" method="post">
+        <form id="subscription-form" action="NewsLetterFormSend.php" method="POST">
             <input type="email" name="email" placeholder="Enter your email" required>
             <button type="submit" name="send">Subscribe</button>
             <input type="hidden" name="subject" value="Thank you for subscribing to Our Newsletter!">

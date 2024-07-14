@@ -6,19 +6,6 @@ require 'phpmailer/src/Exception.php';
 require 'phpmailer/src/PHPMailer.php';
 require 'phpmailer/src/SMTP.php';
 
-$servername = "localhost"; 
-$username = "root"; 
-$password = ""; 
-$dbname = "BIT102"; 
-
-// Create a connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check the connection
-if ($conn->connect_error) {
-    die('Connection failed: ' . $conn->connect_error);
-}
-
 if(isset($_POST["send"])){
     $mail = new PHPMailer(true);
     
@@ -43,7 +30,7 @@ if(isset($_POST["send"])){
 
     echo "<script>
     alert('Sent Successfully');
-    document.location.href = 'emailSub.php';
+    document.location.href = 'NewsLetterForm.php';
     </script>
     ";
 }

@@ -9,16 +9,6 @@ const books = [
     { title: 'The Science of Effective Communication', genre: 'media communicaations', isBorrowed: false, image: 'book8.jpeg' },
     { title: 'Neuroscience Canadian 1st edition book', genre: 'Psychology', isBorrowed: false, image: 'book9.jpeg' },
     { title: 'Fundamentals of Neuroscience', genre: 'Psychology', isBorrowed: false, image: 'book10.jpeg' },
-    { title: 'To Kill a Mockingbird', genre: 'fiction', isBorrowed: false, image: 'image11.jpg' },
-    { title: 'The Alchemist', genre: 'fiction', isBorrowed: false, image: 'image12.jpg' },
-    { title: 'Pride and Prejudice', genre: 'fiction', isBorrowed: false, image: 'image13.jpg' },
-    { title: 'Moby Dick', genre: 'fiction', isBorrowed: false, image: 'image14.jpg' },
-    { title: 'Crime and Punishment', genre: 'Psychology', isBorrowed: false, image: 'image15.jpg' },
-    { title: 'The Odyssey', genre: 'fiction', isBorrowed: false, image: 'image16.jpg' },
-    { title: 'Les Misérables', genre: 'fiction', isBorrowed: false, image: 'image17.jpg' },
-    { title: 'The Iliad', genre: 'fiction', isBorrowed: false, image: 'image18.jpg' },
-    { title: 'Don Quixote', genre: 'fiction', isBorrowed: false, image: 'image19.jpg' },
-    { title: 'The Brothers Karamazov', genre: 'fiction', isBorrowed: false, image: 'image20.jpg' }
 ];
 
 function displayBooks(filteredBooks) {

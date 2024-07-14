@@ -57,6 +57,26 @@ include('includes/navbar.php');
                                     </div>
                                 </div>
                             </div>
+
+                            <!--Elain-->
+                            <div class="col-md-6">
+                                <div class="card mb-3">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Feedback and Improvement Center</h5>
+                                        <p class="card-text">View polls, vote results, and suggestion box.</p>
+                                        <a href="admin-feedbackMainPage.php" class="btn btn-primary">Go to Feedback and Improvement Center</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card mb-3">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Lost and Found Center</h5>
+                                        <p class="card-text">View and manage lost item details.</p>
+                                        <a href="admin-lostAndFoundMainPage.php" class="btn btn-primary">Go to Lost and Found Center</a>
+                                    </div>
+                                </div>
+                            </div>
                             <!-- Add more sections as needed -->
                         </div>
                     </div>

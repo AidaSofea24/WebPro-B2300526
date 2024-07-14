@@ -1,5 +1,4 @@
 <?php
-
 $servername = "localhost"; // replace with your database host
 $username = "root"; // replace with your database username
 $password = ""; // replace with your database password
@@ -12,5 +11,4 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die('Connection failed: ' . $conn->connect_error);
 }
-
 ?>

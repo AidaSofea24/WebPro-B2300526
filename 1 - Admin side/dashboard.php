@@ -44,7 +44,7 @@ include('includes/navbar.php');
                                     <div class="card-body text-center">
                                         <h5 class="card-title">Mental Health Booking</h5>
                                         <p class="card-text">Manage and book mental health appointments.</p>
-                                        <a href="admin/MH_booking_admin.php" class="btn btn-primary">Go to Mental Health Booking</a>
+                                        <a href="needed files/admin.php" class="btn btn-primary">Go to Mental Health Booking</a>
                                     </div>
                                 </div>
                             </div>
@@ -64,7 +64,7 @@ include('includes/navbar.php');
                                     <div class="card-body text-center">
                                         <h5 class="card-title">Feedback and Improvement Center</h5>
                                         <p class="card-text">View polls, vote results, and suggestion box.</p>
-                                        <a href="http://localhost/bit-102/admin-feedbackMainPage.php" class="btn btn-primary">Go to Feedback and Improvement Center</a>
+                                        <a href="admin-feedbackMainPage.php" class="btn btn-primary">Go to Feedback and Improvement Center</a>
                                     </div>
                                 </div>
                             </div>

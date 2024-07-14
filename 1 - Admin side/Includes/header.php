@@ -12,6 +12,10 @@
       .bg-custom {
         background-color: #2f4f87;
       }
+      .navbar-brand img {
+        height: 30px; /* Adjust as needed */
+        margin-right: 20px;
+      }
     </style>
   </head>
   <body>

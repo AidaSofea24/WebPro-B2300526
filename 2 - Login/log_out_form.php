@@ -12,6 +12,7 @@
         <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#logoutModal">
             Logout
         </button>
+        <a href="http://localhost/bit-102/1%20-%20Admin%20side/index.php" class="btn btn-secondary mt-3">Return to homepage</a>
     </div>
 
     <!-- Logout Confirmation Modal -->

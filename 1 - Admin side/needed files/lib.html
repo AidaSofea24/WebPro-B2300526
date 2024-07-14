@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>HELP Library Archive </h1>
+        <h1>HELP Library Archive</h1>
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Search for a book title...">
             <button onclick="searchBook()">Search</button>
@@ -32,6 +32,16 @@
             </select>
         </div>
         <div class="book-grid" id="bookGrid"></div>
+        <div class="borrow-form">
+            <h2>Borrow a Book</h2>
+            <form action="borrow.php" method="post">
+                <label for="studentId">Student ID:</label>
+                <input type="text" id="studentId" name="student_id" required>
+                <label for="bookTitle">Book Title:</label>
+                <input type="text" id="bookTitle" name="book_title" required>
+                <button type="submit">Borrow</button>
+            </form>
+        </div>
     </div>
     <script src="lib.js"></script>
 </body>

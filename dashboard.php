@@ -44,7 +44,7 @@ include('includes/navbar.php');
                                     <div class="card-body text-center">
                                         <h5 class="card-title">Mental Health Booking</h5>
                                         <p class="card-text">Manage and book mental health appointments.</p>
-                                        <a href="needed/admin.php" class="btn btn-primary">Go to Mental Health Booking</a>
+                                        <a href="needed files/admin.php" class="btn btn-primary">Go to Mental Health Booking</a>
                                     </div>
                                 </div>
                             </div>

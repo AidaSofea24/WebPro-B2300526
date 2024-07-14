@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Library System</title>
+    <link rel="stylesheet" href="lib_user.css">
+</head>
+<body>
+    <div class="container">
+        <h1>HELP Library Archive</h1>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for a book title...">
+            <button onclick="searchBook()">Search</button>
+        </div>
+        <div class="filter-container">
+            <label for="alphabetFilter">Sort by Alphabet:</label>
+            <select id="alphabetFilter" onchange="filterBooks()">
+                <option value="all">All</option>
+                <option value="A-F">A-F</option>
+                <option value="G-L">G-L</option>
+                <option value="M-R">M-R</option>
+                <option value="S-Z">S-Z</option>
+            </select>
+            <label for="genreFilter">Sort by Genre:</label>
+            <select id="genreFilter" onchange="filterBooks()">
+                <option value="all">All</option>
+                <option value="IT">IT</option>
+                <option value="Business">Business</option>
+                <option value="Psychology">Psychology</option>
+                <option value="Media Communication">Media Communication</option>
+            </select>
+        </div>
+        <div class="book-grid" id="bookGrid"></div>
+        <div class="borrow-form">
+            <h2>Borrow a Book</h2>
+            <form action="borrow.php" method="post">
+                <label for="studentId">Student ID:</label>
+                <input type="text" id="studentId" name="student_id" required>
+                <label for="bookTitle">Book Title:</label>
+                <input type="text" id="bookTitle" name="book_title" required>
+                <button type="submit">Borrow</button>
+            </form>
+        </div>
+    </div>
+    <script src="lib_user.js"></script>
+</body>
+</html>

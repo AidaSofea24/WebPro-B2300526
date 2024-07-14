@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2f4f87;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+.search-container, .filter-container, .borrow-form {
+    margin-bottom: 20px;
+}
+
+.search-container input, .filter-container select, .borrow-form input {
+    padding: 10px;
+    margin-right: 10px;
+    width: calc(100% - 20px);
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.book-item {
+    background-color: #eee;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.book-item h3 {
+    margin: 10px 0;
+}
+
+.book-item p {
+    margin: 5px 0;
+}

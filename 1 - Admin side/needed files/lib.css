@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+header {
+    
+    
+    /* Header styles */
+    header {
+        background-color: #ffffff;
+        padding: 0px pc;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    background-color: #2f4f87;
+    color: white;
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+}
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.search-container, .filter-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: 200px;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #3f1cdc;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+label {
+    margin-right: 10px;
+    align-self: center;
+}
+
+select {
+    padding: 10px;
+    margin-right: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.book-item {
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.book-item img {
+    width: 100%;
+    height: auto;
+}
+
+.borrow-btn, .return-btn {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.borrow-btn {
+    background-color: #007bff;
+}
+
+.return-btn {
+    background-color: #dc3545;
+}
+
+.borrow-btn:hover {
+    background-color: #0056b3;
+}
+
+.return-btn:hover {
+    background-color: #c82333;
+}

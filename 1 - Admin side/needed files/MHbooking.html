@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Questionnaire</title>
+    <link rel="stylesheet" href="stylomilo.css">
+</head>
+<body>
+    <form id="mentalHealthForm" action="survey.php" method="POST">
+      <div>
+       <h1>Complete Evaluation Before Submitting Bookings</h1>
+      </div>
+        <h2>Personal Information</h2>
+        <label for="fullName">Student ID:</label>
+        <input type="text" id="fullName" name="fullName" required><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="">Select</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Non-binary">Non-binary</option>
+            <option value="Prefer not to say">Prefer not to say</option>
+        </select><br>
+
+        <label for="email"> Personal Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required><br>
+
+        <h2>Questionnaire</h2>
+        <p>Instructions: Please answer the following questions based on your experiences over the past two weeks. Rate each statement on a scale from 1 to 5, where 1 = Never, 2 = Rarely, 3 = Sometimes, 4 = Often, and 5 = Always.</p>
+
+        <fieldset>
+            <legend>Mood and Emotions</legend>
+            <label>I have felt sad or down.</label><br>
+            <input type="radio" name="sad" value="1" required> 1
+            <input type="radio" name="sad" value="2" required> 2
+            <input type="radio" name="sad" value="3" required> 3
+            <input type="radio" name="sad" value="4" required> 4
+            <input type="radio" name="sad" value="5" required> 5<br>
+
+            <label>I have felt anxious or worried.</label><br>
+            <input type="radio" name="anxious" value="1" required> 1
+            <input type="radio" name="anxious" value="2" required> 2
+            <input type="radio" name="anxious" value="3" required> 3
+            <input type="radio" name="anxious" value="4" required> 4
+            <input type="radio" name="anxious" value="5" required> 5<br>
+
+            <label>I have felt hopeless about the future.</label><br>
+            <input type="radio" name="hopeless" value="1" required> 1
+            <input type="radio" name="hopeless" value="2" required> 2
+            <input type="radio" name="hopeless" value="3" required> 3
+            <input type="radio" name="hopeless" value="4" required> 4
+            <input type="radio" name="hopeless" value="5" required> 5<br>
+
+            <label>I have had trouble enjoying activities I usually find pleasurable.</label><br>
+            <input type="radio" name="enjoying" value="1" required> 1
+            <input type="radio" name="enjoying" value="2" required> 2
+            <input type="radio" name="enjoying" value="3" required> 3
+            <input type="radio" name="enjoying" value="4" required> 4
+            <input type="radio" name="enjoying" value="5" required> 5<br>
+
+            <label>I have felt more irritable or angry than usual.</label><br>
+            <input type="radio" name="irritable" value="1" required> 1
+            <input type="radio" name="irritable" value="2" required> 2
+            <input type="radio" name="irritable" value="3" required> 3
+            <input type="radio" name="irritable" value="4" required> 4
+            <input type="radio" name="irritable" value="5" required> 5<br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Sleep and Energy</legend>
+            <label>I have had trouble falling or staying asleep.</label><br>
+            <input type="radio" name="sleep" value="1" required> 1
+            <input type="radio" name="sleep" value="2" required> 2
+            <input type="radio" name="sleep" value="3" required> 3
+            <input type="radio" name="sleep" value="4" required> 4
+            <input type="radio" name="sleep" value="5" required> 5<br>
+
+            <label>I have felt tired or had low energy even after a full night’s sleep.</label><br>
+            <input type="radio" name="tired" value="1" required> 1
+            <input type="radio" name="tired" value="2" required> 2
+            <input type="radio" name="tired" value="3" required> 3
+            <input type="radio" name="tired" value="4" required> 4
+            <input type="radio" name="tired" value="5" required> 5<br>
+
+            <label>I have had difficulty concentrating or making decisions.</label><br>
+            <input type="radio" name="concentrating" value="1" required> 1
+            <input type="radio" name="concentrating" value="2" required> 2
+            <input type="radio" name="concentrating" value="3" required> 3
+            <input type="radio" name="concentrating" value="4" required> 4
+            <input type="radio" name="concentrating" value="5" required> 5<br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Physical Symptoms</legend>
+            <label>I have experienced physical symptoms such as headaches or stomachaches without a clear cause.</label><br>
+            <input type="radio" name="symptoms" value="1" required> 1
+            <input type="radio" name="symptoms" value="2" required> 2
+            <input type="radio" name="symptoms" value="3" required> 3
+            <input type="radio" name="symptoms" value="4" required> 4
+            <input type="radio" name="symptoms" value="5" required> 5<br>
+
+            <label>I have noticed changes in my appetite or weight.</label><br>
+            <input type="radio" name="appetite" value="1" required> 1
+            <input type="radio" name="appetite" value="2" required> 2
+            <input type="radio" name="appetite" value="3" required> 3
+            <input type="radio" name="appetite" value="4" required> 4
+            <input type="radio" name="appetite" value="5" required> 5<br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Social and Behavioral</legend>
+            <label>I have withdrawn from friends or social activities.</label><br>
+            <input type="radio" name="withdrawn" value="1" required> 1
+            <input type="radio" name="withdrawn" value="2" required> 2
+            <input type="radio" name="withdrawn" value="3" required> 3
+            <input type="radio" name="withdrawn" value="4" required> 4
+            <input type="radio" name="withdrawn" value="5" required> 5<br>
+
+            <label>I have had conflicts or arguments with family or friends.</label><br>
+            <input type="radio" name="conflicts" value="1" required> 1
+            <input type="radio" name="conflicts" value="2" required> 2
+            <input type="radio" name="conflicts" value="3" required> 3
+            <input type="radio" name="conflicts" value="4" required> 4
+            <input type="radio" name="conflicts" value="5" required> 5<br>
+
+            <label>I have used alcohol or drugs to cope with my feelings.</label><br>
+            <input type="radio" name="substances" value="1" required> 1
+            <input type="radio" name="substances" value="2" required> 2
+            <input type="radio" name="substances" value="3" required> 3
+            <input type="radio" name="substances" value="4" required> 4
+            <input type="radio" name="substances" value="5" required> 5<br>
+        </fieldset>
+
+        <fieldset>
+            <legend>General Well-Being</legend>
+            <label>I have felt overwhelmed by my responsibilities.</label><br>
+            <input type="radio" name="overwhelmed" value="1" required> 1
+            <input type="radio" name="overwhelmed" value="2" required> 2
+            <input type="radio" name="overwhelmed" value="3" required> 3
+            <input type="radio" name="overwhelmed" value="4" required> 4
+            <input type="radio" name="overwhelmed" value="5" required> 5<br>
+
+            <label>I have felt confident and good about myself.</label><br>
+            <input type="radio" name="confident" value="1" required> 1
+            <input type="radio" name="confident" value="2" required> 2
+            <input type="radio" name="confident" value="3" required> 3
+            <input type="radio" name="confident" value="4" required> 4
+            <input type="radio" name="confident" value="5" required> 5<br>
+        </fieldset>
+
+        <h2>Additional Information</h2>
+        <label for="additional">Is there anything else you would like to share about your mental health?</label><br>
+        <textarea id="additional" name="additional"></textarea><br>
+
+        <label>Are you currently receiving any form of mental health treatment?</label><br>
+        <input type="radio" name="treatment" value="Yes" required> Yes
+        <input type="radio" name="treatment" value="No" required> No<br>
+
+        <label for="treatmentDetails">If yes, please specify the type of treatment you are receiving:</label><br>
+        <input type="text" id="treatmentDetails" name="treatmentDetails"><br>
+
+        <label>On a scale from 1 to 10, how would you rate your overall mental health?</label><br>
+        <input type="radio" name="rating" value="1" required> 1
+        <input type="radio" name="rating" value="2" required> 2
+        <input type="radio" name="rating" value="3" required> 3
+        <input type="radio" name="rating" value="4" required> 4
+        <input type="radio" name="rating" value="5" required> 5
+        <input type="radio" name="rating" value="6" required> 6
+        <input type="radio" name="rating" value="7" required> 7
+        <input type="radio" name="rating" value="8" required> 8
+        <input type="radio" name="rating" value="9" required> 9
+        <input type="radio" name="rating" value="10" required> 10<br>
+
+
+        
+        <button type="submit"></button>
+    
+    </form>
+    <script src="scripity.js"></script>
+</body>
+</html>

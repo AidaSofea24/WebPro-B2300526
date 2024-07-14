@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Appointment Booking System</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="MHstyles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.css" rel="stylesheet"/>
+</head>
+<body>
+    <header>
+        <a href="mainpage.html">
+            <img src="BETTERHELP.jpeg" width="100" alt="BetterHelp Logo"/>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#order">Order Online</a></li>
+                <li><a href="#events">Event</a></li>
+                <li><a href="#contacts">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <div class="hotline">
+            <p>&#128222 Mental health Crisis Hotline: <a href="tel:+6015-48770405">+6015-48770405</a> | for 24/7 emotional support via text message, please Whatsapp <a href="tel:+6011-30116505">+6011-30116505</a></p>
+        </div>
+        <h1 style="padding: 30px;">Mental Health Appointment Booking Calendar</h1>
+    </section>
+
+    <section>
+        <div class="py-1 text-center" style="background-image: url('therapy.jpg'); background-size: cover;">
+            <div class="container">
+                <div class="row">
+                    <div class="bg-white p-6 mx-auto col-md-5 col-10">
+                        <h3 class="display-3">Struggling with your mental health?</h3>
+                        <p class="mb-3 lead">Let's improve together!</p>
+                        <p class="mb-4"> Here at HELP University we are fully devoted to supporting the well-being of all students. We are committed to providing high-quality, compassionate psychological support throughout your academic journey, encompassing preventive mental health workshops, individual therapy, group counselling, crisis management, and assessments. We prioritise your mental health, and our team is devoted to helping you thrive and succeed in your academic journey.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <div class="calendar-container">
+            <div id="calendar"></div>
+        </div>
+        <div class="booking-form-container">
+            <div id="booking-form">
+                <h2>Book an Appointment</h2>
+                <form id="appointment-booking-form" class="mb-5" name="booking" method="POST" action="MH_booking.php">
+                    <div class="form-group">
+                        <label for="student-id">Student ID:</label>
+                        <input type="text" id="student-id" name="student_id" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Preferred Gender of Therapist:</label>
+                        <select id="gender" name="gender" class="form-control">
+                            <option value="female">Female</option>
+                            <option value="male">Male</option>
+                            <option value="no_preference">No Preference</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="qualification">Therapist:</label>
+                        <select id="qualification" name="qualification" class="form-control">
+                            <option value="professional">Professional</option>
+                            <option value="trainee">Therapist in training</option>
+                            <option value="no_preference">No Preference</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date:</label>
+                        <input type="text" id="date" name="date" class="form-control" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Time:</label>
+                        <select id="time" name="time" class="form-control"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Mental Health Pre-evaluation Form Completion:</label>
+                        <div class="form-check">
+                            <input type="radio" id="completed-yes" name="status" value="yes" class="form-check-input">
+                            <label for="completed-yes" class="form-check-label">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="completed-no" name="status" value="no" class="form-check-input">
+                            <label for="completed-no" class="form-check-label">No</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Book Appointment</button>
+                </form>
+            </div>
+            <script>
+                $(document).ready(function() {
+                    $('#appointment-booking-form').submit(function(event) {
+                        event.preventDefault();
+        
+                        var formData = {
+                            student_id: $('#student-id').val(),
+                            gender: $('#gender').val(),
+                            qualification: $('#qualification').val(),
+                            date: $('#date').val(),
+                            time: $('#time').val(),
+                            status: $('input[name="status"]:checked').val()
+                        };
+        
+                        $.ajax({
+                            url: 'MH_booking.php',
+                            type: 'POST',
+                            contentType: 'application/json',
+                            data: JSON.stringify(formData),
+                            success: function(response) {
+                                alert('Booking successful');
+                            },
+                            error: function(error) {
+                                alert('Error booking appointment');
+                            }
+                        });
+                    });
+                });
+            </script>
+        </div>
+        <div class="time-slots-container">
+            <h2>Available and Unavailable Time Slots</h2>
+            <ul id="available-times">
+                <!-- Available time slots will be displayed here -->
+            </ul>
+            <ul id="unavailable-times">
+                <!-- Unavailable time slots will be displayed here -->
+            </ul>
+        </div>
+    </main>
+
+    <section>
+
+        <div> 
+        <h2 class="Therapist-desc">Meet Our Therapists</h2>
+        <!-- Carousel wrapper -->
+<div id="carouselMultiItemExample" data-mdb-carousel-init class="carousel slide carousel-dark text-center" data-mdb-ride="carousel">
+    <!-- Controls -->
+    <div class="d-flex justify-content-center mb-4">
+      <button class="carousel-control-prev position-relative" type="button" data-mdb-target="#carouselMultiItemExample" data-mdb-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next position-relative" type="button" data-mdb-target="#carouselMultiItemExample" data-mdb-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!-- Inner -->
+    <div class="carousel-inner py-4">
+      <!-- Single item -->
+      <div class="carousel-item active">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="card">
+                <img src="therapist 1.jpg" class="card-img-top" alt="Chao Thung Yin (Joyce)" />
+                <div class="card-body">
+                  <h5 class="card-title">Chao Thung Yin (Joyce)</h5>
+                  <p class="card-text">Head, Counselling & Student Welfare.</p>
+                  <a href="#modal1" data-mdb-toggle="modal" class="btn btn-primary">Profile</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 d-none d-lg-block">
+              <div class="card">
+                <img src="therapist2.jpg" class="card-img-top" alt="Chai Pei Ling " />
+                <div class="card-body">
+                  <h5 class="card-title">Chai Pei Ling </h5>
+                  <p class="card-text">Clinical Psychologist</p>
+                  <a href="#modal2" data-mdb-toggle="modal" class="btn btn-primary">Profile</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 d-none d-lg-block">
+              <div class="card">
+                <img src="therapist3.jpg" class="card-img-top" alt="Wong Kah Yee (Chloe)" />
+                <div class="card-body">
+                  <h5 class="card-title"> Wong Kah Yee (Chloe) </h5>
+                  <p class="card-text">Therapist in Training </p>
+                  <a href="#modal3" data-mdb-toggle="modal" class="btn btn-primary">Profile</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- New carousel item -->
+      <div class="carousel-item">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="card">
+                <img src="therapist4.jpg" class="card-img-top" alt="Tan Ah Khim" />
+                <div class="card-body">
+                  <h5 class="card-title">Tan Ah Khim </h5>
+                  <p class="card-text"> Senior Counsellor </p>
+                  <a href="#modal4" data-mdb-toggle="modal" class="btn btn-primary">Profile</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 d-none d-lg-block">
+              <div class="card">
+                <img src="therapist7.jpg" class="card-img-top" alt="Sandy Clark" />
+                <div class="card-body">
+                  <h5 class="card-title"> Sandy Clark </h5>
+                  <p class="card-text">Counsellor</p>
+                  <a href="#modal5" data-mdb-toggle="modal" class="btn btn-primary">Profile</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 d-none d-lg-block">
+              <div class="card">
+                <img src="therapist6.jpg" class="card-img-top" alt="Magtum Aem" />
+                <div class="card-body">
+                  <h5 class="card-title">Magtum Aem </h5>
+                  <p class="card-text">Senior Clinical Psychologist</p>
+                  <a href="#modal6" data-mdb-toggle="modal" class="btn btn-primary">Profile</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Inner -->
+  </div>
+</section>
+<section>
+  <h2 class="animal-carousel" style="text-align: center;">Meet Our Therapy Animals</h2>
+  <div id="carouselExample" data-mdb-carousel-init class="carousel slide carousel-dark text-center" data-mdb-ride="carousel">
+      <div class="d-flex justify-content-center mb-4">
+          <button class="carousel-control-prev position-relative" type="button" data-mdb-target="#carouselExample" data-mdb-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next position-relative" type="button" data-mdb-target="#carouselExample" data-mdb-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+          </button>
+      </div>
+      <div class="carousel-inner py-4">
+          <!-- Animal carousel items -->
+          <div class="carousel-item active">
+              <div class="container" style="padding-left: 25%;">
+                  <div class style="width: 30rem;">
+                      <img src="meer kitty.jpg" class="card-img-top" alt="Buddy the Dog">
+                     
+                  </div>
+              </div>
+          </div>
+          <div class="carousel-item">
+              <div class="container" style="padding-left: 25%;" >
+                  <div class style="width:30rem;">
+                      <img src="racoon.jpg" class="card-img-top" alt="Whiskers the Cat">
+                      
+                  </div>
+              </div>
+          </div>
+          <div class="carousel-item">
+              <div class="container" style="padding-left: 25%;">
+                  <div class style="width: 30rem;">
+                      <img src="smooch.jpg" class="card-img-top" alt="Nibbles the Rabbit">
+                      
+                  </div>
+              </div>
+          </div>
+          <!-- Additional animal carousel items -->
+      </div>
+  </div>
+</section>
+
+  <!-- Carousel wrapper -->
+  
+  <!-- Modals -->
+  <!-- Modal 1 -->
+  <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel1">Chao Thung Yin (Joyce)
+            Clinical Psychologist
+            Master of Clinical Psychology; Bachelor of Psychology (Hons)</h5>
+          <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Joyce Chao is a passionate clinical psychologist dedicated to helping individuals overcome life's challenges. With a Master's degree in Clinical Psychology joint programme of University Sains Malaysia (USM) and Universiti Pendidikan Sultan Idris (UPSI), and a Bachelor’s degree (1st Hons) in Psychology from the University Malaysia Sabah, she brings expertise from diverse environments, including hospitals, NGOs, prisons, and private centres.
+
+Joyce believes in the power of collaboration and fosters a safe, supportive therapeutic relationship with her clients, empowering them to heal and grow. As an unwavering mental health advocate, she emphasises the importance of prioritising one's mental health and aims to normalise seeking therapy, especially among the younger generation. 
+
+With her guiding motto, "Service to humanity is the best work in life," Joyce is committed to making a positive impact, one step at a time, in the lives of those she serves. Let's embark on a journey of growth and well-being together.
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal 2 -->
+  <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel2">Chai Pei Ling
+            Head, Counselling & Student Welfare
+            KB PA, MSSC in Counselling Psychology; BSocSc (Hons) in Psychology; Advanced Diploma in Special Education; Certified EMDR Therapist</h5>
+          <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Pei Ling obtained her Master’s degree in Counselling Psychology and Bachelor’s degree (Hons) in Psychology from National University of Malaysia (UKM). In addition, she has a strong urge to help those with special needs and continues to pursue a Diploma in Learning Disabilities & Child Psychology, followed by an Advanced Diploma in Special Education. 
+
+She has extensive experience in handling clients in the hospital and special needs centre as well as in the tertiary education setting. She believes that working in multidisciplinary setting can help people in a holistic way. With her strong counselling background and experience, Pei Ling has been given an opportunity to develop Special Needs Services in one of the private universities. 
+
+She strongly believes that providing quality, holistic mental health care in the tertiary education setting enhances students’ experience on campus and enriches their lives. Her work and commitment to those she serves is guided by her motto, “University life prepares students for a brighter future.”
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal 3 -->
+  <div class="modal fade" id="modal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel3">Wong Kah Yee (Chloe)
+            Manager
+            KB PA, MA Counselling and Guidance; B (Hons) of Mass Communication; Certified EMDR therapist; Certified QPR Gatekeeper Instructor </h5>
+          <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Chloe is a licensed counsellor with a Master's degree in Guidance and Counselling from the University of Putra Malaysia and is currently a PhD candidate at the National University of Malaysia. Chloe specialises in working with children and young adults. Her research focuses on suicide prevention, as well as the implementation of evidence-based practices (EBPs) for suicide prevention in tertiary settings. She conducts workshops and group counselling sessions for various age groups.
+
+Chloe's warm and positive approach creates a comfortable environment in her counselling sessions. She utilises strength-based techniques, expressive art therapy and sand tray therapy. Her primary focus is on providing a safe and compassionate space that empowers students to make positive changes.
+
+Chloe is trained in sand tray therapy, play therapy, and expressive art therapy. She is certified in Eye Movement Desensitisation and Reprocessing (EMDR) therapy and is a certified trainer of the Suicide Prevention Gatekeeper Training Program. Chloe is dedicated to fostering her firm belief in encouraging students to find creative solutions to life's challenges, unlocking their true potential for a more fulfilling and authentic life. 
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal 4 -->
+  <div class="modal fade" id="modal4" tabindex="-1" aria-labelledby="exampleModalLabel4" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel4">Tan Ah Khim (Khim)
+            Senior Counsellor
+            KB PA, MA. Guidance and Counselling; Bac. of Technology (Hons) (Food)</h5>
+          <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          “Every person has sufficient resources to grow and face the difficulties they encounter in life.” This is the guide that Khim uses in her counselling practice. According to her, counselling is like a treasure hunt, where the client discovers the treasure within themselves to deal with the difficulties they encounter in life. Counselling is a process where the counsellor accompanies the client in their search for their strengths and resources.
+
+Khim holds a Bachelor’s degree (Hons) in Food Technology from University of Science Malaysia (USM) and a Master's degree in Guidance and Counselling from Universiti Putra Malaysia (UPM). She has been working in the education sector for more than 10 years, assisting students from secondary to tertiary institutions. During her service, Khim has organised and conducted various workshops for her students. 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+        </div>
+     </div>
+  </div>
+</div>
+
+    <!-- Modal 5 -->
+    <div class="modal fade" id="modal5" tabindex="-1" aria-labelledby="exampleModalLabel5" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel5">Modal 5 Title</h5>
+            <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            “In my early professional years, I was asking the question: How can I treat, or cure, or change this person? Now I would phrase the question in this way: How can I provide a relationship which this person may use for his own personal growth?” This quote (from Carl Rogers) guides Sandy in his counselling style, focusing less on trying to “fix” or “change” clients, and more on helping them explore and appreciate who they are so they can create desired change for themselves. 
+
+Sandy received his Master's degree in Counselling from Monash University and has since trained in Acceptance and Commitment Therapy (ACT), Motivational Interviewing, and his primary approach, Existential Therapy. Influenced by existential psychotherapists such as Irvin Yalom and Emmy van Deurzen, his work with clients includes helping those going through grief and bereavement, experiencing anxiety, suicidal thoughts and feelings, and existential issues such as self-exploration, creating meaning in life, feeling lost, struggling with decisions, and relationship issues. 
+
+Sandy also has an interest in mindfulness and positive psychology and is the author of Mindfulness and Emotions (MPH, 2019), and the bi-weekly Sunny Side Up column (The Star). 
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Modal 6 -->
+    <div class="modal fade" id="modal6" tabindex="1" aria-labelledby="exampleModalLabel6" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel6">   Magtum Aen-
+              Senior Clinical Psychologist</h5>
+            <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+Master of Clinical Psychology ‒ National University of Malaysia (UKM); Bachelor of Arts (Major in Psychology, Major in Sociology) ‒ University of British Columbia, Canada
+
+Magtum is a registered member of the Malaysian Society of Clinical Psychology. He holds a Master of Clinical Psychology from the National University of Malaysia (UKM) and Bachelor of Arts (Major in Psychology, Major in Sociology) from the University of British Columbia, Canada. He had his clinical training at the Health Psychology Clinic (UKM), Child Development Centre (UKM Medical Centre), and Department of Psychiatry & Mental Health (Kuala Lumpur Hospital).
+
+Magtum provides psychological testing, diagnosis, and interventions to people with various mental health issues and illnesses. He has experience working with people struggling with stress, meaning making in life, interpersonal relationships, sexuality, self-acceptance, and low self-esteem. He also has experience working with people living with various mental health issues and illnesses that include neurodevelopmental disorders (intellectual disability, autism, ADHD, and dyslexia), depressive disorders, bipolar and related disorders, anxiety disorders, obsessive-compulsive and related disorders, and personality disorders. 
+
+Magtum believes that everyone is unique. Therefore, he customises his therapy based on his client’s individual needs and styles with diverse evidence-based therapy techniques.
+
+
+          </div>
+          
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+        <p>Thank you for visiting our mental health appointment booking system.</p>
+        <p>&copy; 2024 Mental Health Booking System. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.js"></script>
+    <script src="mhscript1.js"></script>
+</body>
+</html>

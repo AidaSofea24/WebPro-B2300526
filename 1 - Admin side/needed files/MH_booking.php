@@ -16,16 +16,23 @@ if ($conn->connect_error) {
 $json = file_get_contents('php://input');
 $data = json_decode($json);
 
-$id = $data->id;
+$student_id = $data->student_id;
+$gender = $data->gender;
+$qualification = $data->qualification;
+$date = $data->date;
+$time = $data->time;
+$status = $data->status;
 
-// SQL to delete data from bookings table
-$sql = "DELETE FROM bookings WHERE id='$id'";
+// SQL to insert data into bookings table
+$sql = "INSERT INTO bookings (student_id, gender, qualification, date, time, status)
+VALUES ('$student_id', '$gender', '$qualification', '$date', '$time', '$status')";
 
 if ($conn->query($sql) === TRUE) {
-    echo json_encode(array("message" => "Booking deleted successfully"));
+    echo json_encode(array("message" => "Booking successful"));
 } else {
     echo json_encode(array("error" => "Error: " . $sql . "<br>" . $conn->error));
 }
 
 $conn->close();
 ?>
+

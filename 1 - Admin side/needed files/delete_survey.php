@@ -26,6 +26,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $conn->close();
-header("Location: MH_booking_admin.php"); // Redirect back to the admin page after deletion
+header("Location: admin.php"); // Redirect back to the admin page after deletion
 exit;
 ?>

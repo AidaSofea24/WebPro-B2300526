@@ -1,0 +1,215 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: auto;
+}
+
+header {
+    background: #2f4f87;
+    padding: 1rem;
+    color: white;
+    width:auto;
+    text-align: center;
+}
+
+header img {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+header nav {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin: top 2rem; ;
+    background: #ffffff;
+}
+
+.calendar-container, .booking-form-container, .time-slots-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(35, 30, 128, 0.05);
+    width: 30%;
+    border: 1px solid #ccc;
+}
+
+#calendar {
+    width: 100%;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font: size 1.5em; ;
+}
+
+.days-of-week, .days-grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.day {
+    width: calc(100% / 7);
+    text-align: center;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.day.empty {
+    background-color: #ffffff;
+}
+
+.day.booked {
+    background-color: #FFCCCC;
+}
+
+.day.fully-booked {
+    background-color: #FF9999;
+    color: white;
+}
+
+#booking-form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+#booking-form input[type="date"],
+#booking-form input[type="number"],
+#booking-form select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#booking-form button {
+    width: 100%;
+    padding: 10px;
+    background: #7790dc;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#booking-form button:hover {
+    background-color: #4563a0;
+}
+
+#time-slots {
+    width: 100%;
+}
+
+#time-slots h2 {
+    text-align: center;
+}
+
+#available-times,
+#unavailable-times {
+    list-style: none;
+    padding: 0;
+}
+
+#available-times li {
+    padding: 0.5em;
+    background-color: #d4edda;
+    margin: 0.5rem 0;
+    border: 1px solid #c3e6cb;
+
+}
+
+#unavailable-times li {
+    padding: 0.5em;
+    background-color: #f8d7da;
+    margin: 0.5rem 0;
+    border: 1px solid #f5c6cb;
+
+}
+
+.hotline {
+    color: #fff;
+    text-align: center;
+    background-color: rgba(189, 7, 7, 0.805);
+    padding: 1px;
+}
+
+.Therapist-desc {
+    text-align: center;
+    background-color: #cccccc4d;
+    padding: 20px;
+    color: #2f4f87;
+    
+
+}
+.carousel-control-prev,
+.carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.3);
+    width: 50px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    border-radius: 50%;
+    z-index: 1; /* Ensure buttons are above carousel items */
+    color: #fff;
+    text-align: center;
+    line-height: 50px; /* Center align icon vertically */
+    font-size: 24px; /* Adjust icon size */
+}
+
+.carousel-control-prev {
+    left: 20px;
+}
+
+.carousel-control-next {
+    right: 20px;
+}
+.carousel-item {
+    display: flex;
+    justify-content: center;
+}
+.card {
+    margin: 0 15px;
+}
+

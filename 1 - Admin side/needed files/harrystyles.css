@@ -1,0 +1,137 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ffffff;
+}
+
+
+
+header {
+    
+    
+    /* Header styles */
+    header {
+        background-color: #ffffff;
+        padding: 0px pc;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    background-color: #2f4f87;
+    color: white;
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    margin-top: 2rem;
+    background: #ffffff;
+}
+
+#calendar {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    flex: 2;
+    margin-right: 2rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 5px rgb(35, 30, 128, 0.05);
+}
+
+#booking-form {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    flex: 1;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 5px rgb(35, 30, 128, 0.05);
+}
+
+#time-slots {
+    border: 1px solid #ccc;
+    width: auto;
+    padding: 1rem;
+    flex: 1;
+    margin-left: 2rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 5px rgb(35, 30, 128, 0.05);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label, input, select, button {
+    margin-bottom: 1rem;
+}
+
+button {
+    background-color: #3a59ae;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4563a0;
+}
+
+.calendar-header {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.days-of-week, .days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.day {
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.day.booked {
+    background-color: #FFCCCC;
+}
+
+.day.fully-booked {
+    background-color: #FF9999;
+}
+
+.empty {
+    background-color: #ffffff;
+}
+
+#available-times, #unavailable-times {
+    list-style: none;
+    padding: 0;
+}
+
+#available-times li {
+    background-color: #d4edda;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border: 1px solid #c3e6cb;
+}
+
+#unavailable-times li {
+    background-color: #f8d7da;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border: 1px solid #f5c6cb;
+}

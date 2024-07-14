@@ -16,7 +16,6 @@ include('includes/navbar.php');
                     <div class="card-body">
                         <h2>Access when you are logged in</h2>
 
-                        <!--to add more, start from here-->
                         <div class="row mt-4">
                             <div class="col-md-6">
                                 <div class="card mb-3">
@@ -36,8 +35,6 @@ include('includes/navbar.php');
                                     </div>
                                 </div>
                             </div>
-                            <!--end from here-->
-
                             <div class="row mt-4">
                             <div class="col-md-6">
                                 <div class="card mb-3">
@@ -57,9 +54,7 @@ include('includes/navbar.php');
                                     </div>
                                 </div>
                             </div>
-
-                            <!--Elain-->
-                            <div class="col-md-6">
+                            <div class="col-md-6">      <!--Elain-->
                                 <div class="card mb-3">
                                     <div class="card-body text-center">
                                         <h5 class="card-title">Feedback and Improvement Center</h5>
@@ -76,8 +71,16 @@ include('includes/navbar.php');
                                         <a href="http://localhost/bit-102/admin-lostAndFoundMainPage.php" class="btn btn-primary">Go to Lost and Found Center</a>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- Add more sections as needed -->
+                            </div> 
+                            <div class="col-md-6">
+                                <div class="card mb-3">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Send Newsletter to students</h5>
+                                        <p class="card-text">Send the latest Newsletter</p>
+                                        <a href="http://localhost/bit-102/1%20-%20Admin%20side/adminEmail/adminNewsletterForm.html" class="btn btn-primary">Send Newsletter</a>
+                                    </div>
+                                </div>
+                            </div>  <!-- Add more sections as needed -->
                         </div>
                     </div>
                 </div>

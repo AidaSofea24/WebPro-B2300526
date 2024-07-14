@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Send A Newsletter</title>
+    <style>
+        .form-container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    
+        <div class="form-container mt-5 p-4">
+            <h2 class="text-center">Send Newsletter with Attachment</h2>
+            <form action="adminNewsletterSend.php" method="POST" enctype="multipart/form-data" class="mt-4">
+                <div class="form-group">
+                    <label for="send_to">Send To:</label>
+                    <select name="send_to" id="send_to" class="form-control" required>
+                        <option value="all">All Users</option>
+                        <option value="specific">Specific User</option>
+                    </select>
+                </div>
+                <div class="form-group" id="specific-email" style="display: none;">
+                    <label for="specific_email">Email:</label>
+                    <input type="email" name="specific_email" id="specific_email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject:</label>
+                    <input type="text" name="subject" id="subject" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea name="message" id="message" class="form-control" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="attachment">Attachment:</label>
+                    <input type="file" name="attachment" id="attachment" class="form-control-file">
+                </div>
+                <button type="submit" name="send_newsletter" class="btn btn-primary btn-block">Send Newsletter</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('send_to').addEventListener('change', function() {
+            var specificEmailField = document.getElementById('specific-email');
+            if (this.value === 'specific') {
+                specificEmailField.style.display = 'block';
+            } else {
+                specificEmailField.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

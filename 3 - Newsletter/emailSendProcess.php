@@ -8,19 +8,6 @@ require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 
 if (isset($_POST["send"])) {
-    $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
-
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "<script>
-        alert('Invalid Email Address');
-        document.location.href = 'emailSend.html';
-        </script>";
-        exit();
-    }
-
-    $subject = "Congratulations on Subscribing!";
-    $message = "Hey there! Thanks for subscribing to our Newsletter! This is a great milestone for us!";
-
     $mail = new PHPMailer(true);
 
     $mail->isSMTP();
@@ -31,22 +18,22 @@ if (isset($_POST["send"])) {
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;
 
-    $mail->setFrom('helpuniversitystudentcenter@gmail.com', 'Help University Student Center');
-    $mail->addAddress($email);
+    $mail->setFrom('helpuniversitystudentcenter@gmail.com');
+    $mail->addAddress($_POST["email"]);
     $mail->isHTML(true);
-    $mail->Subject = $subject;
-    $mail->Body = $message;
+    $mail->Subject = $_POST["subject"];
+    $mail->Body = $_POST["message"];
 
     try {
         $mail->send();
         echo "<script>
         alert('Sent Successfully');
-        document.location.href = 'NewsLetterForm.html';
+        document.location.href = 'emailSend.html';
         </script>";
     } catch (Exception $e) {
         echo "<script>
         alert('Message could not be sent. Mailer Error: {$mail->ErrorInfo}');
-        document.location.href = 'NewsLetterForm.html';
+        document.location.href = 'emailSend.html';
         </script>";
     }
 }

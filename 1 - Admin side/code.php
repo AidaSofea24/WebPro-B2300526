@@ -1,5 +1,6 @@
 <?php
 session_start();
+include('includes/session_check.php');
 include('dbcon.php');
 
 use PHPMailer\PHPMailer\PHPMailer;

@@ -1,6 +1,7 @@
 <?php
-include('../1 - Admin side/Includes/dbcon.php');
 session_start();
+include('../1 - Admin side/Includes/dbcon.php');
+
 
 $userID = strtoupper($_POST['userID']);  
 $password = $_POST['password'];  

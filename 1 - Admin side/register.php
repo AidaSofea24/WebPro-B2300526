@@ -1,5 +1,6 @@
 <?php 
 $page_title = "Registration Form";
+include('includes/session_check.php');
 include('includes/header.php');
 include('includes/navbar.php');
 ?>

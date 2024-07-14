@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Feedback and improvement for admin</title>
+    <title>Admin-Feedback and Improvement</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesElain.css">
 </head>
 <body>
-    <div class="py-5 text-center" style="background-image: url('campus.png'); background-size: cover;">
+    <div class="py-5 text-center" style="background-image: url('~campus.png'); background-size: cover;">
       <div class="container">
         <div class="row">
           <div class="bg-white p-5 mx-auto col-md-8 col-10">
@@ -131,8 +131,6 @@
                             </tbody>
                         </table>
                     </div>
-                    
-                    
                 </div>
                 <!-- end of admin side - New Suggestions of poll -->
 
@@ -288,37 +286,44 @@
         </div>
     </div>
 
+    <!--when we click the nav item button, then it will show the related things -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Get all the tab buttons
-            var tabButtons = document.querySelectorAll(".nav-link");
+        // Get all the tab buttons
+        var tabButtons = document.querySelectorAll(".nav-link");
 
-            // Add click event listeners to each tab button
-            tabButtons.forEach(function(button) {
-                button.addEventListener("click", function() {
-                    // Remove 'active' class from all tab buttons
-                    tabButtons.forEach(function(btn) {
-                        btn.classList.remove("active");
-                    });
-
-                    // Add 'active' class to the clicked tab button
-                    button.classList.add("active");
-
-                    // Get the target tab pane ID
-                    var target = button.getAttribute("data-bs-target");
-
-                    // Hide all tab panes
-                    var tabPanes = document.querySelectorAll(".tab-pane");
-                    tabPanes.forEach(function(pane) {
-                        pane.classList.remove("show", "active");
-                    });
-
-                    // Show the corresponding tab pane
-                    var targetPane = document.querySelector(target);
-                    targetPane.classList.add("show", "active");
+        // Add click event listeners to each tab button
+        tabButtons.forEach(function(button) {
+            button.addEventListener("click", function() {
+                // Remove 'active' class from all tab buttons
+                tabButtons.forEach(function(btn) {
+                    btn.classList.remove("active");
                 });
+
+                // Add 'active' class to the clicked tab button
+                button.classList.add("active");
+
+                // Get the target tab pane ID
+                var target = button.getAttribute("data-bs-target");
+
+                // Hide all tab panes
+                var tabPanes = document.querySelectorAll(".tab-pane");
+                tabPanes.forEach(function(pane) {
+                    pane.classList.remove("show", "active");
+                });
+
+                // Show the corresponding tab pane
+                var targetPane = document.querySelector(target);
+                targetPane.classList.add("show", "active");
             });
         });
+    });
+
+    </script>
+
+    <!--when click the nav item button, got animation to handle scrolling to scrollTop to the opened section-->
+    <script>
+    
     </script>
 </body>
 </html>

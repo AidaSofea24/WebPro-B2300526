@@ -1,13 +1,6 @@
-document.addEventListener('DOMContentLoaded', function () {
-    initCalendar();
-    initBookingForm();
-    fetchBookings();
-});
-
-let bookings = []; // Global variable to store bookings data
-
-function initCalendar() {
+document.addEventListener('DOMContentLoaded', function() {
     const calendarEl = document.getElementById('calendar');
+
     const calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
         headerToolbar: {
@@ -15,153 +8,163 @@ function initCalendar() {
             center: 'title',
             right: 'dayGridMonth,timeGridWeek,timeGridDay'
         },
-        events: [], // Events will be dynamically fetched and populated
-        eventClick: function (info) {
-            viewBooking(info.event.id); // Handle event click to view details
-        }
+        dateClick: function(info) {
+            const dateStr = info.dateStr;
+            document.getElementById('date').value = dateStr;
+            populateTimeSlots(dateStr);
+        },
+        events: fetchBookings
     });
+
     calendar.render();
-}
 
-function initBookingForm() {
-    const bookingForm = document.getElementById('appointment-booking-form');
+    function fetchBookings() {
+        fetch('get_bookings.php')
+            .then(response => response.json())
+            .then(data => {
+                calendar.removeAllEvents();
+                data.bookings.forEach(booking => {
+                    calendar.addEvent({
+                        title: `Booking: ${booking.gender} (${booking.time})`,
+                        start: booking.date,
+                        allDay: true
+                    });
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching bookings:', error);
+            });
+    }
 
-    // Function to populate time slots based on selected date
+    document.addEventListener('DOMContentLoaded', function () {
+        // Handle delete action
+        document.querySelectorAll('.delete-booking').forEach(button => {
+            button.addEventListener('click', function () {
+                const bookingId = this.getAttribute('data-id');
+                if (confirm('Are you sure you want to delete this booking?')) {
+                    // Send request to server to delete booking
+                    fetch(`delete_booking.php?id=${bookingId}`, {
+                        method: 'GET'
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('Booking deleted successfully');
+                            location.reload(); // Reload the page to reflect changes
+                        } else {
+                            alert('Failed to delete booking');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('An error occurred while deleting the booking');
+                    });
+                }
+            });
+        });
+    
+        // Handle edit action
+        document.querySelectorAll('.edit-booking').forEach(button => {
+            button.addEventListener('click', function () {
+                const bookingId = this.getAttribute('data-id');
+                // Fetch booking data and populate the form for editing
+                fetch(`get_booking.php?id=${bookingId}`, {
+                    method: 'GET'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Populate the form fields with booking data
+                        document.getElementById('date').value = data.booking.date;
+                        document.getElementById('time').value = data.booking.time;
+                        document.getElementById('gender').value = data.booking.gender;
+                        // Add a hidden field to track the booking ID being edited
+                        let bookingIdField = document.createElement('input');
+                        bookingIdField.type = 'hidden';
+                        bookingIdField.id = 'booking-id';
+                        bookingIdField.name = 'booking_id';
+                        bookingIdField.value = data.booking.booking_id;
+                        document.getElementById('appointment-booking-form').appendChild(bookingIdField);
+                    } else {
+                        alert('Failed to fetch booking data');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while fetching the booking data');
+                });
+            });
+        });
+    });
+    
+
     function populateTimeSlots(date) {
+        const availableTimesList = document.getElementById('available-times');
+        const unavailableTimesList = document.getElementById('unavailable-times');
         const timeSelect = document.getElementById('time');
+        
+        availableTimesList.innerHTML = '';
+        unavailableTimesList.innerHTML = '';
         timeSelect.innerHTML = '';
 
-        // Dummy data for time slots, replace with actual implementation
-        const timeSlots = [
-            { value: '09:00', label: '09:00 AM' },
-            { value: '10:00', label: '10:00 AM' },
-            { value: '11:00', label: '11:00 AM' },
-            // Add more time slots as needed
-        ];
+        fetch('get_bookings.php')
+            .then(response => response.json())
+            .then(data => {
+                const bookings = data.bookings.filter(booking => booking.date === date);
+                const bookedTimes = bookings.map(booking => parseInt(booking.time.split(':')[0]));
 
-        timeSlots.forEach(slot => {
-            const option = document.createElement('option');
-            option.value = slot.value;
-            option.textContent = slot.label;
-            timeSelect.appendChild(option);
-        });
+                for (let hour = 9; hour <= 21; hour++) {
+                    const timeSlot = document.createElement('li');
+                    timeSlot.innerText = `${String(hour).padStart(2, '0')}:00 - ${String(hour + 1).padStart(2, '0')}:00`;
+
+                    const option = document.createElement('option');
+                    option.value = `${String(hour).padStart(2, '0')}:00`;
+                    option.innerText = `${String(hour).padStart(2, '0')}:00`;
+
+                    if (bookedTimes.includes(hour)) {
+                        unavailableTimesList.appendChild(timeSlot);
+                        timeSlot.style.color = 'red';
+                    } else {
+                        availableTimesList.appendChild(timeSlot);
+                        timeSelect.appendChild(option);
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching bookings:', error);
+            });
     }
 
-    bookingForm.addEventListener('submit', function (event) {
+    document.getElementById('appointment-booking-form').addEventListener('submit', function(event) {
         event.preventDefault();
 
-        const gender = bookingForm.gender.value;
-        const room = bookingForm.room.value;
-        const date = bookingForm.date.value;
-        const time = bookingForm.time.value;
+        const student_id = this['student_id'].value;
+        const gender = this.gender.value;
+        const room = this.room.value;
+        const date = this.date.value;
+        const time = this.time.value;
 
-        // Dummy data for booking, replace with actual implementation
-        const newBooking = {
-            id: bookings.length + 1,
-            date: date,
-            time: time,
-            duration: '1 hour',
-            therapistGender: gender,
-            room: room
-        };
+        fetch('MH_booking.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ student_id, gender, room, date, time }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+            if (data.message === "Booking successful") {
+                fetchBookings();
+            }
+        })
+        .catch(error => {
+            console.error('Error sending data:', error);
+            alert('Error booking appointment. Please try again.');
+        });
 
-        // Add new booking to local data
-        bookings.push(newBooking);
-        renderBookings(); // Update bookings table
-
-        // Reset form fields
-        bookingForm.reset();
+        this.reset();
     });
 
-    // Initialize date field to today's date
-    const currentDate = new Date().toISOString().split('T')[0];
-    document.getElementById('date').value = currentDate;
-
-    // Initial population of time slots for today's date
-    populateTimeSlots(currentDate);
-}
-
-function fetchBookings() {
-    // Dummy data for bookings, replace with actual implementation
-    bookings = [
-        {
-            id: 1,
-            date: '2024-07-15',
-            time: '09:00',
-            duration: '1 hour',
-            therapistGender: 'female',
-            room: 'Room 1'
-        },
-        {
-            id: 2,
-            date: '2024-07-16',
-            time: '10:00',
-            duration: '1 hour',
-            therapistGender: 'male',
-            room: 'Room 2'
-        },
-        // Add more bookings as needed
-    ];
-
-    renderBookings();
-}
-
-function renderBookings() {
-    const bookingsTable = document.getElementById('bookings-table').getElementsByTagName('tbody')[0];
-    bookingsTable.innerHTML = '';
-
-    bookings.forEach(booking => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td>${booking.date}</td>
-            <td>${booking.time}</td>
-            <td>${booking.duration}</td>
-            <td>${booking.therapistGender}</td>
-            <td>${booking.room}</td>
-            <td>
-                <button onclick="viewBooking(${booking.id})">View</button>
-                <button onclick="editBooking(${booking.id})">Edit</button>
-                <button onclick="deleteBooking(${booking.id})">Delete</button>
-            </td>
-        `;
-        bookingsTable.appendChild(row);
-    });
-}
-
-function viewBooking(id) {
-    const booking = bookings.find(b => b.id === id);
-    if (booking) {
-        alert(`Booking Details:\nDate: ${booking.date}\nTime: ${booking.time}\nDuration: ${booking.duration}\nTherapist Gender: ${booking.therapistGender}\nRoom: ${booking.room}`);
-    } else {
-        alert('Booking not found.');
-    }
-}
-
-function editBooking(id) {
-    const booking = bookings.find(b => b.id === id);
-    if (booking) {
-        // Populate form fields with booking data for editing
-        document.getElementById('gender').value = booking.therapistGender;
-        document.getElementById('room').value = booking.room;
-        document.getElementById('date').value = booking.date;
-        document.getElementById('time').value = booking.time;
-
-        // Implement your edit logic here
-        // For simplicity, you can just alert a message for demo purposes
-        alert(`Editing booking with ID ${id}`);
-    } else {
-        alert('Booking not found.');
-    }
-}
-
-function deleteBooking(id) {
-    const confirmed = confirm('Are you sure you want to delete this booking?');
-    if (confirmed) {
-        // Dummy logic to delete from local data, replace with actual implementation
-        bookings = bookings.filter(b => b.id !== id);
-        renderBookings(); // Update bookings table
-
-        // Alert for demo purposes
-        alert(`Booking with ID ${id} deleted.`);
-    }
-}
+    fetchBookings();
+});

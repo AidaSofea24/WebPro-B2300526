@@ -18,13 +18,6 @@
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="dashboard.php">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="register.php">Register New Student</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="list_user.php">Student List</a>
-                    </li>
                     <li class="nav-item">
                     <a class="nav-link" href="../2 - Login/log_out_form.php">Log out</a>
                     </li>

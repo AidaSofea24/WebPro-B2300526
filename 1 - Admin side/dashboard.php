@@ -21,18 +21,18 @@ include('includes/navbar.php');
                             <div class="col-md-6">
                                 <div class="card mb-3">
                                     <div class="card-body text-center">
-                                        <h5 class="card-title">Mental Health Booking</h5>
-                                        <p class="card-text">Manage and book mental health appointments.</p>
-                                        <a href="mental_health_booking.php" class="btn btn-primary">Go to Mental Health Booking</a>
+                                        <h5 class="card-title">Register A New Student</h5>
+                                        <p class="card-text">Register a new student for the service.</p>
+                                        <a href="register.php" class="btn btn-primary">Register New Student Here</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="card mb-3">
                                     <div class="card-body text-center">
-                                        <h5 class="card-title">Poll Admin</h5>
-                                        <p class="card-text">Administer and manage polls.</p>
-                                        <a href="poll_admin.php" class="btn btn-primary">Go to Poll Admin</a>
+                                        <h5 class="card-title">Student List</h5>
+                                        <p class="card-text">Manage student from here</p>
+                                        <a href="list_user.php" class="btn btn-primary">View Student List</a>
                                     </div>
                                 </div>
                             </div>

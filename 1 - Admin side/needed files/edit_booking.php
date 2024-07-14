@@ -15,16 +15,22 @@ if ($conn->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['booking_id'])) {
         $booking_id = $_POST['booking_id'];
+        $student_id = $_POST['student_id'];
+        $date = $_POST['date'];
+        $time = $_POST['time'];
+        $gender = $_POST['gender'];
+        $room = $_POST['room'];
+        $therapist = $_POST['therapist'];
 
-        // Prepare the SQL delete statement
-        $sql = "DELETE FROM bookings WHERE id = ?";
+        // Prepare the SQL update statement
+        $sql = "UPDATE bookings SET student_id = ?, date = ?, time = ?, gender = ?, room_name = ?, therapist_name = ? WHERE id = ?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i", $booking_id);
+        $stmt->bind_param("isssssi", $student_id, $date, $time, $gender, $room, $therapist, $booking_id);
 
         if ($stmt->execute()) {
-            echo "Booking deleted successfully.";
+            echo "Booking updated successfully.";
         } else {
-            echo "Error deleting booking: " . $conn->error;
+            echo "Error updating booking: " . $conn->error;
         }
 
         $stmt->close();

@@ -1,0 +1,221 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #2f4f87;
+    padding: 10px 0;
+    color: white;
+    text-align: center;
+}
+
+header img {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+header nav {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.calendar-container, .booking-form-container, .time-slots-container, .view-bookings-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 45%;
+    margin-bottom: 20px;
+}
+
+#calendar {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#calendar-date {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#reset-date {
+    width: calc(100% - 20px);
+    padding: 10px;
+    background: #4c5aa5;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#reset-date:hover {
+    background: #3449f3;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#booking-form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+#booking-form input[type="date"],
+#booking-form input[type="number"],
+#booking-form select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#booking-form button {
+    width: 100%;
+    padding: 10px;
+    background: #34449f;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#booking-form button:hover {
+    background: #3449f3;
+}
+
+#time-slots {
+    width: 100%;
+}
+
+#time-slots h2 {
+    text-align: center;
+}
+
+#available-times,
+#unavailable-times {
+    list-style: none;
+    padding: 0;
+}
+
+#available-times li,
+#unavailable-times li {
+    padding: 5px 0;
+}
+
+.view-bookings-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.view-bookings-container table, .view-bookings-container th, .view-bookings-container td {
+    border: 1px solid #ccc;
+}
+
+.view-bookings-container th, .view-bookings-container td {
+    padding: 10px;
+    text-align: center;
+}
+
+.view-bookings-container th {
+    background-color: #f2f2f2;
+}
+#time-slots {
+    width: 100%;
+}
+
+#time-slots h2 {
+    text-align: center;
+}
+
+#available-times,
+#unavailable-times {
+    list-style: none;
+    padding: 0;
+}
+
+#available-times li {
+    padding: 0.5em;
+    background-color: #d4edda;
+    margin: 0.5rem 0;
+    border: 1px solid #c3e6cb;
+
+}
+
+#unavailable-times li {
+    padding: 0.5em;
+    background-color: #f8d7da;
+    margin: 0.5rem 0;
+    border: 1px solid #f5c6cb;
+
+}
+
+/* Add styles for the survey table */
+.view-surveys-container {
+    margin-top: 20px;
+}
+
+.view-surveys-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.view-surveys-container table, .view-surveys-container th, .view-surveys-container td {
+    border: 1px solid #ddd;
+}
+
+.view-surveys-container th, .view-surveys-container td {
+    padding: 8px;
+    text-align: left;
+}
+
+.view-surveys-container th {
+    background-color: #f2f2f2;
+}
+

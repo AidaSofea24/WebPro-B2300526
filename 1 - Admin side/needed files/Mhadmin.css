@@ -69,7 +69,7 @@ main {
 }
 
 #calendar-date {
-    width: calc(60% - 20px);
+    width: calc(85% - 20px);
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;

@@ -28,6 +28,7 @@ $count = mysqli_num_rows($result);
 
 if($count == 1 && password_verify($password, $row['password'])){  
     $_SESSION['user_id'] = $row['ID'];
+    $_SESSION['student_id'] = $row['student_id']; //updated?
     
     if($row['role'] == 'admin') {
         echo "<script>

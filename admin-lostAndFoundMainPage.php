@@ -3,11 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Feedback and improvement for admin</title>
+    <title>Admin-Lost and Found</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesElain.css">
 </head>
 <body>
+    <!--User Homepage - textbox in full screen picture-->
+    <div class="py-5" style="background-image: url('~campus5.png'); height: 100vh; background-size: cover;">
+        <div class="container">
+            <div class="row">
+                <div class="bg-white p-5 mx-auto col-md-8 col-10">
+                    <h3 class="display-3">Lost and Found Center</h3>
+                    <p class="mb-3 lead">Managing Our Community's Lost Treasures</p>
+                    <p class="mb-4">
+                        The Lost and Found Center is an essential resource for our university community, including students, faculty, and staff. As administrators, our role is to efficiently manage the reporting, cataloging, and retrieval of lost items. We ensure that all found items are logged accurately and accessible to those who need to recover their belongings. Our goal is to maintain a systematic and transparent process that fosters a sense of trust and security on campus. By leveraging effective communication and organization, we help reunite individuals with their lost items, reinforcing our commitment to a supportive university environment.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container text-center" style="margin-top: 5%;">
         <div class="row justify-content-md-center">
           <div class="col col-lg-4" style="justify-content:center;">

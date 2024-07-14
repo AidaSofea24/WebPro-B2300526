@@ -40,10 +40,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Handle delete action
         document.querySelectorAll('.delete-booking').forEach(button => {
             button.addEventListener('click', function () {
-                const bookingId = this.getAttribute('data-id');
+                const booking_id = this.getAttribute('data-id');
                 if (confirm('Are you sure you want to delete this booking?')) {
                     // Send request to server to delete booking
-                    fetch(`delete_booking.php?id=${bookingId}`, {
+                    fetch(`delete_booking.php?id=${booking_id}`, {
                         method: 'GET'
                     })
                     .then(response => response.json())
@@ -66,15 +66,17 @@ document.addEventListener('DOMContentLoaded', function() {
         // Handle edit action
         document.querySelectorAll('.edit-booking').forEach(button => {
             button.addEventListener('click', function () {
-                const bookingId = this.getAttribute('data-id');
+                const booking_id = this.getAttribute('data-id');
                 // Fetch booking data and populate the form for editing
-                fetch(`get_booking.php?id=${bookingId}`, {
+                fetch(`get_booking.php?id=${booking_id}`, {
                     method: 'GET'
                 })
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
                         // Populate the form fields with booking data
+                        document.getElementById('booking_id').value = data.booking.booking_id;
+                        document.getElementById('student_id').value = data.booking.student_id;
                         document.getElementById('date').value = data.booking.date;
                         document.getElementById('time').value = data.booking.time;
                         document.getElementById('gender').value = data.booking.gender;
@@ -134,6 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.error('Error fetching bookings:', error);
             });
     }
+    
 
     document.getElementById('appointment-booking-form').addEventListener('submit', function(event) {
         event.preventDefault();

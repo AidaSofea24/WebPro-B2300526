@@ -9,26 +9,36 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
-    die(json_encode(['success' => false, 'error' => 'Connection failed: ' . $conn->connect_error]));
+    die("Connection failed: " . $conn->connect_error);
 }
 
-// Retrieve form data
-$data = json_decode(file_get_contents('php://input'), true);
-$bookId = $data['bookId'];
-$title = $data['title'];
-$genre = $data['genre'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $book_id = $_POST["book_id"];
+    $title = $_POST["title"];
+    $genre = $_POST["genre"];
+    $image = $_FILES["image"]["name"];
+    $target_dir = "uploads/";
+    $target_file = $target_dir . basename($image);
 
-// Update book data in database
-$sql = "UPDATE books SET title = ?, genre = ? WHERE book_id = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("ssi", $title, $genre, $bookId);
+    $sql = "UPDATE books SET title='$title', genre='$genre'";
 
-if ($stmt->execute()) {
-    echo json_encode(['success' => true]);
-} else {
-    echo json_encode(['success' => false, 'error' => 'Error: ' . $stmt->error]);
+    if (!empty($image)) {
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+            $sql .= ", image='$image'";
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+            exit;
+        }
+    }
+
+    $sql .= " WHERE book_id=$book_id";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Book updated successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
 }
 
-$stmt->close();
 $conn->close();
 ?>

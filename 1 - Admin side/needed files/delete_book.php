@@ -9,24 +9,29 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
-    die(json_encode(['success' => false, 'error' => 'Connection failed: ' . $conn->connect_error]));
+    die("Connection failed: " . $conn->connect_error);
 }
 
-// Retrieve form data
-$data = json_decode(file_get_contents('php://input'), true);
-$bookId = $data['bookId'];
+if (isset($_GET['id'])) {
+    $book_id = intval($_GET['id']);
 
-// Delete book from database
-$sql = "DELETE FROM books WHERE book_id = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $bookId);
+    $sql = "DELETE FROM books WHERE book_id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $book_id);
 
-if ($stmt->execute()) {
-    echo json_encode(['success' => true]);
+    if ($stmt->execute()) {
+        $response = array("success" => true);
+    } else {
+        $response = array("success" => false, "error" => $stmt->error);
+    }
+
+    $stmt->close();
 } else {
-    echo json_encode(['success' => false, 'error' => 'Error: ' . $stmt->error]);
+    $response = array("success" => false, "error" => "Invalid ID");
 }
 
-$stmt->close();
 $conn->close();
+
+header('Content-Type: application/json');
+echo json_encode($response);
 ?>

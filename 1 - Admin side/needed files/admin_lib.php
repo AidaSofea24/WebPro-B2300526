@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library System - Admin</title>
+    <title>Admin Panel - Library System</title>
     <link rel="stylesheet" href="Lib_admin.css">
 </head>
 <body>
@@ -24,32 +24,71 @@
         <main>
             <div class="book-list-container" id="view-books">
                 <h2>View All Books</h2>
-                <div class="book-grid" id="bookGrid"></div>
+                <div class="book-grid" id="bookGrid">
+                    <?php
+                    // PHP code to fetch and display books
+                    $servername = "localhost";
+                    $username = "root";
+                    $password = "";
+                    $dbname = "assignment2024";
+
+                    // Create connection
+                    $conn = new mysqli($servername, $username, $password, $dbname);
+
+                    // Check connection
+                    if ($conn->connect_error) {
+                        die("Connection failed: " . $conn->connect_error);
+                    }
+
+                    $sql = "SELECT * FROM books";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
+                            echo '<div class="book-item" data-id="' . $row['book_id'] . '">';
+                            echo '<h3>' . $row['book_id'] . '</h3>';
+                            echo '<h3>' . $row['title'] . '</h3>';
+                            echo '<p>' . $row['genre'] . '</p>';
+                            echo '<button onclick="editBook(' . $row['book_id'] . ')">Edit</button>';
+                            echo '<button onclick="deleteBook(' . $row['book_id'] . ')">Delete</button>';
+                            echo '</div>';
+                        }
+                    } else {
+                        echo "<p>No books found.</p>";
+                    }
+
+                    $conn->close();
+                    ?>
+                </div>
             </div>
             <div class="book-form-container" id="add-book">
                 <h2>Add a New Book</h2>
-                <form action="add_book.php" method="post" enctype="multipart/form-data" class="book-form">
+                <form id="addBookForm" enctype="multipart/form-data" action="add_book.php" method="POST">
                     <label for="title">Book Title:</label>
                     <input type="text" id="title" name="title" required>
                     <label for="genre">Genre:</label>
                     <input type="text" id="genre" name="genre" required>
                     <label for="image">Image:</label>
-                    <input type="file" id="image" name="image" required>
+                    <input type="file" id="image" name="image" accept="image/*" required>
                     <button type="submit">Add Book</button>
+                </form>
+            </div>
+            <div class="book-form-container" id="edit-book" style="display: none;">
+                <h2>Edit Book</h2>
+                <form id="editBookForm" enctype="multipart/form-data" action="edit_book.php" method="POST">
+                    <input type="hidden" id="editBookId" name="book_id">
+                    <label for="editTitle">Book Title:</label>
+                    <input type="text" id="editTitle" name="title" required>
+                    <label for="editGenre">Genre:</label>
+                    <input type="text" id="editGenre" name="genre" required>
+                    <label for="editImage">Image:</label>
+                    <input type="file" id="editImage" name="image" accept="image/*">
+                    <button type="submit">Update Book</button>
                 </form>
             </div>
             <div class="manage-borrowing-container" id="manage-borrowing">
                 <h2>Manage Borrowing</h2>
                 <div class="book-grid" id="manageGrid"></div>
-                <!-- Inside the book-grid div where books are displayed -->
-                <div class="book-item">
-                    <img src="data:image/jpeg;base64,${book.image}" alt="${book.title}">
-                    <h3>${book.title}</h3>
-                    <p>${book.genre}</p>
-                    <button onclick="editBook(${book.book_id}, '${book.title}', '${book.genre}')">Edit</button>
-                    <button onclick="deleteBook(${book.book_id})">Delete</button>
-                </div>
-
             </div>
         </main>
     </section>

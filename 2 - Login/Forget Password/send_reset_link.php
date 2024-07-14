@@ -9,7 +9,7 @@ require 'phpmailer/src/SMTP.php';
 $servername = "localhost"; 
 $username = "root"; 
 $password = ""; 
-$dbname = "bit102db"; 
+$dbname = "BIT102"; 
 
 // Create a connection
 $conn = new mysqli($servername, $username, $password, $dbname);

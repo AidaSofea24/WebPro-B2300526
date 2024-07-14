@@ -51,9 +51,9 @@ include('includes/navbar.php');
                             <div class="col-md-6">
                                 <div class="card mb-3">
                                     <div class="card-body text-center">
-                                        <h5 class="card-title">Poll Admin</h5>
-                                        <p class="card-text">Administer and manage polls.</p>
-                                        <a href="poll_admin.php" class="btn btn-primary">Go to Poll Admin</a>
+                                        <h5 class="card-title">HELP e-Library Management</h5>
+                                        <p class="card-text">Manage the e-books inside the library</p>
+                                        <a href="poll_admin.php" class="btn btn-primary">Go to e-Library</a>
                                     </div>
                                 </div>
                             </div>

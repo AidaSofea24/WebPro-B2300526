@@ -68,3 +68,15 @@ function deleteBook(bookId) {
         .catch(error => console.error('Error:', error));
     }
 }
+function filterAdminBooks() {
+    const genreFilter = document.getElementById('adminGenreFilter').value;
+    const bookItems = document.querySelectorAll('.book-item');
+    bookItems.forEach(book => {
+        const genre = book.getAttribute('data-genre');
+        if (genreFilter === 'all' || genre === genreFilter) {
+            book.style.display = 'block';
+        } else {
+            book.style.display = 'none';
+        }
+    });
+}

@@ -40,7 +40,7 @@
             <div class="tab-content" id="myTabContent">
                 <!-- Admin side - Lost Item Details -->
                 <div class="tab-pane fade show active" id="detail-tab-pane" role="tabpanel" aria-labelledby="detail-tab" tabindex="0">
-                    <div class="mt-5" style="justify-content: center; align-items: center;margin-left: 10%; margin-right: 10%;">
+                    <div class="mt-5" style="justify-content: center; align-items: center;margin-left: 10%; margin-right: 10%; margin-bottom: 50%">
                         <div>
                             <h1>Lost Item Details</h1><br>
                             <hr class="mt-1" />
@@ -123,7 +123,7 @@
 
                 <!-- Admin side - Add new lost item -->
                 <div class="tab-pane fade" id="addNew-tab-pane" role="tabpanel" aria-labelledby="addNew-tab" tabindex="0">
-                    <div class="mt-5" style="justify-content: center; align-items: center;margin-left: 20%; margin-right: 20%;">
+                    <div class="mt-5" style="justify-content: center; align-items: center;margin-left: 20%; margin-right: 20%; margin-bottom: 50%">
                         <form class="row g-3" action="admin-uploadLostItem.php" method="post" enctype="multipart/form-data"> <!-- Keyword to upload file: enctype="multipart/form-data" -->
                             <h1>Add a new lost item</h1>
                             <div class="input-group mb-3">

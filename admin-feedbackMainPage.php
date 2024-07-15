@@ -39,7 +39,7 @@
             <div class="tab-content" id="myTabContent">
                 <!-- ✅Admin side - New Suggestions of poll -->
                 <div class="tab-pane fade show active" id="poll-tab-pane" role="tabpanel" aria-labelledby="poll-tab" tabindex="0">
-                    <div class="mt-5" style="justify-content: center; align-items: center;margin-left: 10%; margin-right: 10%;">
+                    <div class="mt-5" style="justify-content: center; align-items: center;margin-left: 10%; margin-right: 10%; margin-bottom: 50%">
                         <div>
                             <h1>Suggestions of new poll</h1><br>
                             <hr class="mt-1" />
@@ -136,7 +136,7 @@
 
                 <!-- ✅Admin side - Result of vote -->
                 <div class="tab-pane fade" id="result-tab-pane" role="tabpanel" aria-labelledby="result-tab" tabindex="0">
-                    <div class="mt-5" style="justify-content: center; align-items: center;margin-left: 10%; margin-right: 10%;">
+                    <div class="mt-5" style="justify-content: center; align-items: center;margin-left: 10%; margin-right: 10%; margin-bottom: 50%">
                         <div>
                             <h1>Vote Results</h1>
                             <hr class="mt-1" />
@@ -220,7 +220,7 @@
 
                 <!--✅admin : suggestion received-->
                 <div class="tab-pane fade" id="suggestion-tab-pane" role="tabpanel" aria-labelledby="suggestion-tab" tabindex="0">
-                    <div class="mt-5" style="justify-content: center; align-items: center;margin-left: 10%; margin-right: 10%;">
+                    <div class="mt-5" style="justify-content: center; align-items: center;margin-left: 10%; margin-right: 10%; margin-bottom: 50%">
                         <div>
                             <h1>Suggestions Box</h1>
                             <hr class="mt-1" />
@@ -319,11 +319,6 @@
         });
     });
 
-    </script>
-
-    <!--when click the nav item button, got animation to handle scrolling to scrollTop to the opened section-->
-    <script>
-    
     </script>
 </body>
 </html>

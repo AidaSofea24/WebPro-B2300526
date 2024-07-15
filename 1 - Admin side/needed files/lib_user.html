@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Library System</title>
-    <link rel="stylesheet" href="lib_user.css">
+    <link rel="stylesheet" href="lib.css">
 </head>
 <body>
     <div class="container">
@@ -31,15 +31,29 @@
                 <option value="Media Communication">Media Communication</option>
             </select>
         </div>
-        <div class="book-grid" id="bookGrid"></div>
+        <div class="book-grid" id="bookGrid">
+            <!-- Books will be displayed here -->
+        </div>
         <div class="borrow-form">
-            <h2>Borrow a Book</h2>
-            <form action="borrow.php" method="post">
-                <label for="studentId">Student ID:</label>
-                <input type="text" id="studentId" name="student_id" required>
-                <label for="bookTitle">Book Title:</label>
-                <input type="text" id="bookTitle" name="book_title" required>
+            <form id="borrowForm" onsubmit="borrowBook(event)">
+                <label for="book_id">Book ID:</label>
+                <input type="text" id="book_id" name="book_id" readonly>
+                <label for="title">Book Title:</label>
+                <input type="text" id="title" name="title" readonly>
+                <label for="student_id">Student ID:</label>
+                <input type="text" id="student_id" name="student_id" required>
                 <button type="submit">Borrow</button>
+                <p id="borrowResult"></p>
+            </form>
+        </div>
+        <div class="return-form">
+            <form id="returnForm" onsubmit="returnBook(event)">
+                <label for="book_id_return">Book ID:</label>
+                <input type="text" id="book_id_return" name="book_id_return" readonly>
+                <label for="title_return">Book Title:</label>
+                <input type="text" id="title_return" name="title_return" readonly>
+                <button type="submit">Return</button>
+                <p id="returnResult"></p>
             </form>
         </div>
     </div>

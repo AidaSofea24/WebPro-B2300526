@@ -25,20 +25,29 @@
             <label for="genreFilter">Sort by Genre:</label>
             <select id="genreFilter" onchange="filterBooks()">
                 <option value="all">All</option>
-                <option value="fiction">IT</option>
-                <option value="nonfiction">Business</option>
-                <option value="mystery">Psychology</option>
-                <option value="fantasy">Media Communication</option>
+                <option value="IT">IT</option>
+                <option value="Business">Business</option>
+                <option value="Psychology">Psychology</option>
+                <option value="Media Communication">Media Communication</option>
             </select>
         </div>
-        <div class="book-grid" id="bookGrid"></div>
+        <div class="book-grid" id="bookGrid">
+            <!-- Books will be populated here -->
+        </div>
         <div class="borrow-form">
-            
-            <form action="borrow.php" method="post">
-              
+            <form id="borrowForm" action="borrow.php" method="post" onsubmit="borrowBook(event)">
+                <label for="book_id">Book ID:</label>
+                <input type="text" id="book_id" name="book_id" readonly>
+                <label for="title">Book Title:</label>
+                <input type="text" id="title" name="title" readonly>
+                <label for="student_id">Student ID:</label>
+                <input type="text" id="student_id" name="student_id" required>
+                <button type="submit">Borrow</button>
+                <p id="borrowResult"></p>
             </form>
         </div>
     </div>
-    <script src="lib.js"></script>
+  
+    <script src="lib_user.js"></script>
 </body>
 </html>

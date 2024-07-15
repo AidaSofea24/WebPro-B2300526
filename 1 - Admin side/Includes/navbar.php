@@ -14,12 +14,12 @@
 
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                    <a class="nav-link active" href="index.php">Home</a>
+                    <a class="nav-link active" href="http://localhost/bit-102/1%20-%20Admin%20side/index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="dashboard.php">Dashboard</a>
+                    <a class="nav-link" href="http://localhost/bit-102/1%20-%20Admin%20side/dashboard.php">Dashboard</a>
                     <li class="nav-item">
-                    <a class="nav-link" href="../2 - Login/log_out_form.php">Log out</a>
+                    <a class="nav-link" href="http://localhost/bit-102/2%20-%20Login/log_out_form.php">Log out</a>
                     </li>
                 </ul>
 

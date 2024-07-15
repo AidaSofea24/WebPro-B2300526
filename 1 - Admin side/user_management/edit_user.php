@@ -1,7 +1,7 @@
 <?php 
 $page_title = "Home page";
-include('includes/header.php');
-include('includes/navbar.php');
+include('../includes/header.php');
+include('../includes/navbar.php');
 ?>
 
 <div class="container mt-5">
@@ -10,7 +10,7 @@ include('includes/navbar.php');
         $servername = "localhost"; // replace with your database host
         $username = "root"; // replace with your database username
         $password = ""; // replace with your database password
-        $dbname = "bit102db"; // replace with your database name
+        $dbname = "bit102"; // replace with your database name
 
         // Create a connection
         $conn = new mysqli($servername, $username, $password, $dbname);
@@ -47,7 +47,7 @@ include('includes/navbar.php');
             first_name = '$newfirstname', 
             last_name='$newlastname', 
             email = '$newEmail', 
-            password = '$newPassword' WHERE id = $id";
+            password = '$newPassword' WHERE ID = $id";
      
             if ($conn->query($updateSql) === TRUE) {
                 header("Location: list_user.php");
@@ -81,4 +81,4 @@ include('includes/navbar.php');
         </form>
     </div>
 
-<?php include('includes/footer.php');?>
+<?php include('../includes/footer.php');?>

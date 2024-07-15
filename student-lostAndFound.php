@@ -134,4 +134,36 @@
         </section>
     </div>
 </body>
+    <footer>
+        <div class="" >
+            <div class="container">
+                <div class="row">
+                    <div class="p-4 col-md-3">
+                        <h2 class="mb-4">About Us</h2>
+                        <p>Our excellent academic programmes are widely accredited so you can easily further your studies, but we offer much more: 8 key attributes for life and career, a vibrant student life and a HELP community that supports your aspirations. We will help you get that piece of paper, but we want to get you ahead in life.</p>
+                    </div>
+                    <div class="p-4 col-md-3">
+                        <h2 class="mb-4">Navigation</h2>
+                        <ul class="list-unstyled"> 
+                            <a href="#" class="text-dark">Home</a> <br> 
+                            <a href="#" class="text-dark">Communication</a> <br> 
+                            <a href="#" class="text-dark">Support</a> <br> 
+                            <a href="#" class="text-dark">Learning</a> <br> 
+                            <a href="#" class="text-dark">Campus Life</a> <br> 
+                            <a href="#" class="text-dark">About Us</a> 
+                        </ul>
+                    </div>
+                    <div class="p-4 col-md-6">
+                        <h2 class="mb-4">Visit Us</h2>
+                        <iframe width="100%" height="350" src="https://maps.google.com/maps?q=HELP%20Subang%202&#038;t=m&#038;z=11&#038;output=embed&#038;iwloc=near" scrolling="no" frameborder="0"></iframe> 
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 mt-3">
+                    <p class="text-center">© For educational purposes only </p>
+                    </div>
+                </div>
+            </div>
+          </div>
+    </footer>
 </html>

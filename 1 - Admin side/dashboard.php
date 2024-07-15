@@ -45,6 +45,18 @@ include('includes/navbar.php');
                                     </div>
                                 </div>
                             </div>
+                            </div>
+                            <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="card mb-3">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Library Room Booking</h5>
+                                        <p class="card-text">Manage and book mental health appointments.</p>
+                                        <a href=" http://localhost/bit-102/1%20-%20Admin%20side/needed%20files/lib_booking_admin%20copy.html" class="btn btn-primary">Go to Mental Health Booking</a>
+                                    </div>
+                                </div>
+                            </div>
+                           
                             <div class="col-md-6">
                                 <div class="card mb-3">
                                     <div class="card-body text-center">

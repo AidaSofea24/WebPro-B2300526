@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <a href="mainpage.html">
+        <a href="dashboard.php">
             <img src="BETTERHELP.jpeg" width="100" alt="Library Logo"/>
         </a>
         <nav>

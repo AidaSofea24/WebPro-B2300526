@@ -45,7 +45,15 @@ include('includes/navbar.php');
                                     </div>
                                 </div>
                             </div>
-                            </div>
+                            <div class="col-md-6">
+                                <div class="card mb-3">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Send Newsletter to students</h5>
+                                        <p class="card-text">Send the latest Newsletter</p>
+                                        <a href="http://localhost/bit-102/1%20-%20Admin%20side/adminEmail/adminNewsletterForm.html" class="btn btn-primary">Send Newsletter</a>
+                                    </div>
+                                </div>
+                            </div>  <!-- Add more sections as needed -->
                             <div class="row mt-4">
                             <div class="col-md-6">
                                 <div class="card mb-3">
@@ -56,7 +64,6 @@ include('includes/navbar.php');
                                     </div>
                                 </div>
                             </div>
-                           
                             <div class="col-md-6">
                                 <div class="card mb-3">
                                     <div class="card-body text-center">
@@ -84,15 +91,6 @@ include('includes/navbar.php');
                                     </div>
                                 </div>
                             </div> 
-                            <div class="col-md-6">
-                                <div class="card mb-3">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Send Newsletter to students</h5>
-                                        <p class="card-text">Send the latest Newsletter</p>
-                                        <a href="http://localhost/bit-102/1%20-%20Admin%20side/adminEmail/adminNewsletterForm.html" class="btn btn-primary">Send Newsletter</a>
-                                    </div>
-                                </div>
-                            </div>  <!-- Add more sections as needed -->
                         </div>
                     </div>
                 </div>

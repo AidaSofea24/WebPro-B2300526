@@ -91,6 +91,33 @@ include('includes/navbar.php');
                                     </div>
                                 </div>
                             </div> 
+                            <div class="col-md-6">
+                                <div class="card mb-3">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">FCDT Booking</h5>
+                                        <p class="card-text">Book services from FCDT</p>
+                                        <a href="#" class="btn btn-primary">Go to FCDT Booking</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card mb-3">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">HIS Booking</h5>
+                                        <p class="card-text">Book facilities from HIS</p>
+                                        <a href="#" class="btn btn-primary">Go to HIS Booking</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card mb-3">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Club Management</h5>
+                                        <p class="card-text">Manage Clubs</p>
+                                        <a href="#" class="btn btn-primary">Go to Club Management</a>
+                                    </div>
+                                </div>
+                            </div> 
                         </div>
                     </div>
                 </div>

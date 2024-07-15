@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <a href="dashboard.php">
+        <a href="http://localhost/bit-102/1%20-%20Admin%20side/dashboard.php">
             <img src="BETTERHELP.jpeg" width="100" alt="BetterHelp Logo"/>
         </a>
         <nav>

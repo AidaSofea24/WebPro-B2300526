@@ -2,30 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library Room Booking System</title>
     <link rel="stylesheet" href="harrystyles.css">
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css' rel='stylesheet' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js'></script>
 </head>
 <body>
     <header>
-        <header>
-            <a href="mainpage.html">
-                <img src="BETTERHELP.jpeg" width="100"/>
-            </a>
-            <nav>
-                <ul>
-            </nav>
-        </header>  
-    </header>
+        <a href="mainpage.html">
+            <img src="BETTERHELP.jpeg" width="100"/>
+        </a>
+        <nav>
+            <ul>
+            </ul>
+        </nav>
+    </header>  
     <section>
         <h1>Library Room Booking Calendar</h1>
     
     <main>
-        <div id="calendar">
-        <input type="date" id="calendar" name="date" required></div>
+        <div id="calendar"></div>
         <div id="booking-form">
             <h2>Book a Room</h2>
-            <form id="room-booking-form">
+            <form id="room-booking-form" action="book_room.php" method="POST">
                 <label for="campus">Campus:</label>
                 <select id="campus" name="campus">
                     <option value="damansara">Damansara Campus</option>
@@ -38,7 +38,7 @@
                     <option value="room2">Room 2</option>
                     <option value="room3">Room 3</option>
                 </select>
-                <label for="date">date:</label>
+                <label for="date">Date:</label>
                 <input type="date" id="date" name="date" required>
                 <label for="time">Time:</label>
                 <select id="time" name="time" required>
@@ -59,9 +59,21 @@
             </ul>
         </div>
     </main>
-    <script src="scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
 
-   
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                events: 'fetch_bookings.php',
+                dateClick: function(info) {
+                    // Open booking form with the selected date
+                    document.getElementById('date').value = info.dateStr;
+                }
+            });
+
+            calendar.render();
+        });
+    </script>
 </body>
 </html>
-

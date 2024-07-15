@@ -15,7 +15,7 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "bit102db";
+    $dbname = "bit102";
     $conn = new mysqli($servername, $username, $password, $dbname);
 
     if ($conn->connect_error) {

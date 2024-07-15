@@ -125,20 +125,20 @@
                 <div class="tab-pane fade" id="addNew-tab-pane" role="tabpanel" aria-labelledby="addNew-tab" tabindex="0">
                     <div class="mt-5" style="justify-content: center; align-items: center;margin-left: 20%; margin-right: 20%; margin-bottom: 50%">
                         <form class="row g-3" action="admin-uploadLostItem.php" method="post" enctype="multipart/form-data"> <!-- Keyword to upload file: enctype="multipart/form-data" -->
-                            <h1>Add a new lost item</h1>
+                        <h1>Add a new lost item</h1>
                             <div class="input-group mb-3">
                                 <label class="input-group-text" for="inputGroupSelect01">Title</label>
-                                <input type="text" aria-label="title" class="form-control" name="title" id="title">
+                                <input type="text" aria-label="title" class="form-control" name="title" id="title" required>
                             </div>
                             <div class="col-12">
                                 <div class="input-group mb-3">
-                                    <input type="file" class="form-control" name="fileToUpload" id="fileToUpload"> 
+                                    <input type="file" class="form-control" name="fileToUpload" id="fileToUpload" required> 
                                     <label class="input-group-text" for="lostItemPic" name="lostItemPic" id="lostItemPic">Upload</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a comment here" name="itemDescription" id="itemDescription" style="height: 100px"></textarea>
+                                    <textarea class="form-control" placeholder="Leave a comment here" name="itemDescription" id="itemDescription" style="height: 100px" required></textarea>
                                     <label for="floatingTextarea2">Description</label>
                                 </div>
                             </div>
